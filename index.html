@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defending Bitcoin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Censorship Resistance Threshold</h1>
+
+        <div class="stats">
+            <div class="stat">
+                <h2>Current Bitcoin Hashrate</h2>
+                <p id="hashrate">Loading...</p>
+            </div>
+            <div class="stat">
+                <h2>Guerrilla Miners Needed</h2>
+                <p id="miners">Loading...</p>
+            </div>
+        </div>
+        
+        <div class="slider-container">          
+            <div class="slider-group">
+                <label>Hashpower per Guerrilla Miner <span class="info-icon" id="power-info-icon">ⓘ</span></label>
+                <div class="slider-controls">
+                    <input type="range" id="bitaxe-hashrate-slider" min="1" max="500" value="50" step="1">
+                    <span id="bitaxe-value">50 TH/s</span>
+                </div>
+            </div>
+            
+            <div class="slider-group">
+                <label>Existing Guerrilla Hashrate <span class="info-icon" id="guerrilla-info-icon">ⓘ</span></label>
+                <div class="slider-controls">
+                    <input type="range" id="black-market-miners-slider" min="0" max="51" value="5">
+                    <span id="slider-value">5%</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-link">
+            <a href="https://bitaxe.org/" target="_blank" rel="noopener">Become a guerrilla miner!</a>
+        </div>
+        
+        <div class="info-panel">
+            <h2>About This Metric</h2>
+            <p>This calculator helps determine Bitcoin's censorship resistance by estimating how many guerrilla miners are needed to fully secure the network. For Bitcoin to resist on-chain censorship, at least 51% of the total network hashrate must come from miners operating outside regulatory control.</p>
+            <p>The calculation accounts for any existing guerrilla hashrate and determines how many more guerrilla miners of a specified hashpower would be needed to reach the critical 51% censorship resistance threshold.</p>
+        </div>
+
+        <div class="definitions-panel">
+            <h2>Terminology</h2>
+            <div class="definition">
+                <h4>Guerrilla Miners <span class="alt-term">(Black Market Miners)</span></h4>
+                <p>Bitcoin miners that operate covertly without regulatory oversight, often in small-scale or home setups distributed globally. These miners contribute to network decentralization by remaining anonymous and resistant to forced censorship or government capture.</p>
+            </div>
+            <div class="definition">
+                <h4 class="regulated">Regulated Miners <span class="alt-term">(White Market Miners)</span></h4>
+                <p>Bitcoin miners that operate openly under regulatory oversight, typically as registered companies in industrial-scale facilities. These miners must comply with local regulations and are vulnerable to regulatory pressure, censorship mandates, and government capture.</p>
+            </div>
+        </div>
+        
+        <div id="info-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div id="guerrilla-info" style="display: none;">
+                    <h3>Existing Guerrilla Hashrate</h3>
+                    <p>This slider sets what percentage of Bitcoin's current hashrate is <strong>already</strong> coming from guerrilla miners.</p>
+                    <p><strong>How it works:</strong> If set to 15%, it means:</p>
+                    <ul>
+                        <li>15% of current hashrate is already guerrilla miners</li>
+                        <li>We need to add enough new miners to make the <em>total</em> resistant hashrate reach 51%</li>
+                        <li>The higher this percentage, the fewer additional miners needed</li>
+                    </ul>
+                </div>
+                <div id="power-info" style="display: none;">
+                    <h3>Hashpower per Guerrilla Miner</h3>
+                    <p>This slider sets the hashpower of each <strong>additional</strong> guerrilla miner added to the network.</p>
+                    <p><strong>How it works:</strong></p>
+                    <ul>
+                        <li>The total additional hashrate needed is divided by this value</li>
+                        <li>Higher TH/s = fewer additional miners needed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="note"><i>"The only secure hash is unknown hash."</i> <span class="attribution">— <a href="https://x.com/aeonBTC" target="_blank">@æonBTC</a></span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

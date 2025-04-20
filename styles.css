@@ -1,0 +1,433 @@
+:root {
+    --bg: #141419;
+    --box: #1f1f28;
+    --card: #282833;
+    --border: rgba(255, 255, 255, 0.12);
+    --orange: #ff9d3f;
+    --warm-orange: #e67e22;
+    --light-orange: #ff9966;
+    --blue: #4dabf7;
+    --purple: #c099ff;
+    --teal: #4db6ac;
+    --green: #66bb6a;
+    --magenta: #ec407a;
+    --cyan: #00bcd4;
+    --gold: #d4b86a;
+    --red: #f44336;
+    --title: #ffffff;
+    --text: #e9ecef;
+    --subtitle: #adb5bd;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.5 system-ui, sans-serif;
+    display: grid;
+    place-items: center;
+    padding: 2rem 0 0.5rem 0;
+}
+
+.container {
+    position: relative;
+    width: min(90%, 600px);
+    padding: 2rem 2rem 1rem 2rem;
+    background: var(--box);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: var(--title);
+    text-align: center;
+    margin: 0 0 2rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+}
+
+/* Common card styles */
+.info-panel, .stats, .slider-container, .definitions-panel {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-panel {
+    text-align: center;
+}
+
+.info-panel h2 {
+    color: var(--title);
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+}
+
+.info-panel p {
+    margin: 0 auto 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 540px;
+}
+
+.info-panel p:last-child {
+    margin-bottom: 0;
+}
+
+.note {
+    opacity: 0.9;
+    font-size: 0.95rem;
+    color: var(--subtitle);
+    margin-top: 1.5rem;
+}
+
+.note a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.note a:hover {
+    color: var(--blue);
+}
+
+.note .attribution {
+    display: inline;
+    margin-left: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--subtitle);
+}
+
+/* Stats section */
+.stats {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.stat {
+    flex: 1;
+    text-align: center;
+}
+
+.stat h2 {
+    color: var(--subtitle);
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.stat p {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+#hashrate { color: var(--blue) }
+#miners { color: var(--orange) }
+
+/* Slider section */
+.slider-container {
+    text-align: left;
+}
+
+.slider-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.slider-group:last-child {
+    margin-bottom: 0;
+}
+
+.slider-group label {
+    display: block;
+    color: var(--subtitle);
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.slider-controls input[type="range"] {
+    flex: 1;
+    width: 100%;
+    height: 6px;
+    -webkit-appearance: none;
+    background: rgba(77, 171, 247, 0.15);
+    border-radius: 3px;
+    outline: none;
+}
+
+.slider-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--blue);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(77, 171, 247, 0.3);
+}
+
+.slider-controls input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--blue);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(77, 171, 247, 0.3);
+}
+
+.slider-controls span {
+    min-width: 80px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--blue);
+}
+
+/* Definitions section */
+.definitions-panel {
+    background: var(--box);
+    border: 1px solid var(--border);
+}
+
+.definitions-panel h2 {
+    color: var(--white);
+    margin: 0 0 1.2rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.definition {
+    margin-bottom: 1.2rem;
+    padding: 0.8rem;
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.definition:last-child {
+    margin-bottom: 0;
+}
+
+.definition h4 {
+    color: var(--orange);
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.3px;
+}
+
+.definition h4.regulated {
+    color: var(--red);
+}
+
+.definition p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+/* Info icon and modal */
+.info-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    color: var(--blue);
+    cursor: pointer;
+    vertical-align: text-top;
+    margin-left: 5px;
+    transition: color 0.2s;
+}
+
+.info-icon:hover {
+    color: var(--title);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+}
+
+.modal-content {
+    position: relative;
+    background: var(--card);
+    margin: 15% auto;
+    padding: 1.5rem;
+    width: min(90%, 500px);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: var(--subtitle);
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--title);
+}
+
+.modal h3 {
+    color: var(--title);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0 0.5rem 0;
+    }
+    .container {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+    .stats {
+        flex-direction: column;
+    }
+    .info-panel, .stats, .slider-container, .definitions-panel {
+        padding: 1.2rem;
+    }
+    
+    /* No need for refresh button fixes anymore */
+    h1 {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+    }
+}
+
+.info-panel ul {
+    text-align: left;
+    margin: 0 auto 1rem;
+    padding-left: 1.5rem;
+    max-width: 540px;
+    list-style-type: none;
+}
+
+.info-panel ul li {
+    position: relative;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.info-panel ul li:before {
+    content: "•";
+    color: var(--blue);
+    position: absolute;
+    left: -1rem;
+}
+
+.action-link {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.action-link a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card);
+    color: var(--orange);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-link a:hover {
+    background: var(--box);
+    border-color: var(--orange);
+    transform: translateY(-1px);
+    color: var(--orange);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content ul {
+    margin: 0 0 1rem;
+    padding-left: 1.5rem;
+    list-style-type: none;
+}
+
+.modal-content ul li {
+    position: relative;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.modal-content ul li:before {
+    content: "•";
+    color: var(--orange);
+    position: absolute;
+    left: -1rem;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.footer .note {
+    margin-top: 0;
+    opacity: 0.8;
+    font-size: 0.95rem;
+    color: var(--subtitle);
+}
+
+.footer .attribution {
+    display: inline;
+    margin-left: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--subtitle);
+}
+
+.alt-term {
+    font-size: 0.8rem;
+    font-weight: normal;
+    opacity: 0.8;
+    color: var(--subtitle);
+    letter-spacing: normal;
+}
