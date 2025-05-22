@@ -1,0 +1,1352 @@
+/* Main Styles for Bitcoin Censorship Resistance Project */
+:root {
+    --primary-color: #f7931a;
+    --secondary-color: #4d4d4d;
+    --accent-blue: #4dabf7;
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --border-color: #333;
+    --success-color: #28a745;
+    --success-rgb: 40, 167, 69;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --danger-rgb: 220, 53, 69;
+    --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    --transition-speed: 0.3s;
+}
+
+/* Fix for the black padding at the bottom */
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--dark-bg);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+}
+
+a:hover {
+    color: #ffab40;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(77, 171, 247, 0.2);
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Navigation */
+.main-nav {
+    background-color: rgba(18, 18, 18, 0.95);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex: 1 0 auto;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--dark-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.7); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    color: var(--primary-color);
+    text-shadow: 0 0 15px rgba(247, 147, 26, 0.4);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Button Styles */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+}
+
+.cta-button:hover {
+    background-color: #ffab40;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.cta-button.outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(77, 171, 247, 0.1);
+}
+
+.cta-button.outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 15px rgba(77, 171, 247, 0.2);
+}
+
+/* Content Sections */
+.content-section {
+    padding: 4rem 2rem;
+}
+
+/* Add specific styling for mining pools page to reduce bottom padding */
+.mining-pools .content-section {
+    padding: 4rem 2rem 1rem; /* Reduce bottom padding from 4rem to 1rem */
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.content-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.dark-bg {
+    background-color: #0a0a0a;
+}
+
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.content-text p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.content-image img {
+    width: 100%;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-speed) ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(77, 171, 247, 0.15);
+}
+
+.stat-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px rgba(77, 171, 247, 0.3);
+}
+
+.stat-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Concept Cards */
+.concept-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.concept-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-speed) ease;
+    height: 100%;
+}
+
+.concept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(77, 171, 247, 0.15);
+}
+
+.concept-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.concept-card p {
+    color: var(--text-secondary);
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+}
+
+.cta-section h2 {
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid var(--border-color);
+    padding: 3rem 0 0;
+    margin-top: 4rem;
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.footer-section p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+.footer-bottom a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-bottom a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+    
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+    }
+    
+    .logo {
+        margin-bottom: 0;
+    }
+    
+    body {
+        font-size: 95%; /* Slightly reduce base font for medium screens */
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 60px 15px; /* Reduce hero padding */
+        background-position: center center;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem; /* Adjusted from 2rem for better fit */
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .content-section {
+        padding: 3rem 1.5rem; /* Reduce section padding */
+    }
+
+    .content-section h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    /* Mining pools responsive adjustments */
+    .methods-container {
+        grid-template-columns: 1fr; /* Stack centralized/decentralized containers */
+        gap: 20px;
+    }
+    
+    .methods-grid-centralized,
+    .methods-grid-decentralized {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Allow more flexible card layout */
+    }
+
+    .detail-panel {
+        padding: 1.5rem;
+    }
+    
+    .detail-panel .method-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .diagram-container i {
+        font-size: 2.5em; /* Scale down icons in diagrams */
+    }
+    .diagram-container .fa-2x {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 90%; /* Further reduce base font for small screens */
+    }
+
+    .logo {
+        font-size: 1.2rem; /* Further reduce logo size */
+    }
+
+    .nav-links a {
+        padding: 0.4rem 0; /* Reduce padding on nav links */
+    }
+
+    .content-section {
+        padding: 2rem 1rem;
+    }
+
+    .hero {
+        padding: 30px 10px;
+    }
+    
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    .concept-card, .stat-card, .method-card {
+        padding: 1rem;
+    }
+
+    .method-card .method-title {
+        font-size: 1rem;
+    }
+
+    .method-icon i {
+        font-size: 2em !important; /* Reduce icon size in method cards */
+    }
+
+    .methods-grid-centralized,
+    .methods-grid-decentralized {
+        grid-template-columns: 1fr; /* Stack cards in single column */
+    }
+
+    .diagram-container {
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+
+    .diagram-container i {
+        font-size: 2em; /* Further scale down icons */
+    }
+    .diagram-container .fa-2x {
+        font-size: 1.2em;
+    }
+
+    .cta-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .container-label { /* Adjust labels in mining pools */
+        font-size: 1rem;
+        padding: 4px 10px;
+        top: -10px;
+        left: 20px;
+    }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+        --nav-bg: #0a0a0a;
+        --text-color: #ffffff;
+    }
+}
+
+/* Mining Pool Flowchart Styles */
+.flowchart-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.spectrum-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.spectrum-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+}
+
+.centralized {
+    color: var(--danger-color);
+}
+
+.decentralized {
+    color: var(--success-color);
+}
+
+.mining-methods {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.method-card {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--card-bg);
+}
+
+.method-card:hover {
+    box-shadow: 0 0 0 3px var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.method-card.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+/* Specific active state for centralized cards */
+.centralized-container .method-card.active {
+    border-color: var(--danger-color);
+    box-shadow: 0 0 0 3px var(--danger-color);
+    background-color: rgba(var(--danger-rgb), 0.15);
+}
+
+/* Specific active state for decentralized cards */
+.decentralized-container .method-card.active {
+    border-color: var(--success-color);
+    box-shadow: 0 0 0 3px var(--success-color);
+    background-color: rgba(var(--success-rgb), 0.15);
+}
+
+.method-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.method-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.method-icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.detail-panel {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 1;
+}
+
+.detail-panel.active {
+    display: block;
+    z-index: 2;
+}
+
+.detail-panel .method-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.detail-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.diagram-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.diagram-container i {
+    color: var(--primary-color);
+}
+
+.detail-section {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.2rem;
+}
+
+.detail-heading {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+.detail-list {
+    list-style-type: none;
+    counter-reset: item;
+    padding-left: 0;
+}
+
+.detail-list li {
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 2.5rem;
+    display: block;
+}
+
+.detail-list li:before {
+    content: counter(item) ".";
+    counter-increment: item;
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: 600;
+    width: 2rem;
+    text-align: right;
+}
+
+.roles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.role-item {
+    padding: 0.5rem 0;
+}
+
+.role-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+/* Pool Server role title in red */
+.role-title.server-role {
+    color: #dc3545;
+}
+
+/* Miners role title in blue */
+.role-title.miners-role {
+    color: #4dabf7;
+}
+
+.examples-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.example-tag {
+    background-color: rgba(77, 171, 247, 0.15);
+    color: var(--accent-blue);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: inline-block;
+    border: 1px solid rgba(77, 171, 247, 0.2);
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.action-button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.action-button.back {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.action-button.back:before {
+    content: "←";
+    font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mining pools containers and layout */
+.methods-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.centralized-container, .decentralized-container {
+    border-radius: 12px;
+    padding: 35px 20px 20px 20px;
+    position: relative;
+    margin-top: 15px;
+}
+
+.centralized-container {
+    background-color: rgba(var(--danger-rgb, 220, 53, 69), 0.1);
+    border: 2px solid rgba(var(--danger-rgb, 220, 53, 69), 0.3);
+}
+
+.decentralized-container {
+    background-color: rgba(var(--success-rgb, 40, 167, 69), 0.1);
+    border: 2px solid rgba(var(--success-rgb, 40, 167, 69), 0.3);
+}
+
+.container-label {
+    position: absolute;
+    top: -12px;
+    left: 30px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.centralized-label {
+    color: #000;
+    border: 2px solid var(--danger-color);
+    background-color: #ff6b6b;
+}
+
+.decentralized-label {
+    color: #000;
+    border: 2px solid var(--success-color);
+    background-color: #51cf66;
+}
+
+.methods-grid-centralized {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.methods-grid-decentralized {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.centralized-container .method-card {
+    border-color: rgba(var(--danger-rgb, 220, 53, 69), 0.3);
+}
+
+.decentralized-container .method-card {
+    border-color: rgba(var(--success-rgb, 40, 167, 69), 0.3);
+}
+
+/* Responsive adjustments for mining pools layout */
+@media (max-width: 1024px) {
+    .mining-methods {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .methods-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .methods-grid-centralized,
+    .methods-grid-decentralized {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mining-methods {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .mining-methods,
+    .methods-grid-centralized,
+    .methods-grid-decentralized {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive adjustments for detail panels */
+@media (max-width: 768px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .detail-panel {
+        padding: 1.5rem;
+    }
+    
+    .detail-panel .method-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+/* Icon colors for diagrams */
+.diagram-container .fa-user-group {
+    color: #4dabf7; /* Blue */
+}
+
+.diagram-container .fa-bitcoin {
+    color: #f7931a; /* Bitcoin orange */
+}
+
+.diagram-container .fa-server {
+    color: #dc3545; /* Red */
+}
+
+.diagram-container .fa-arrows-left-right, 
+.diagram-container .fa-arrow-right {
+    color: #ffffff; /* White */
+}
+
+.diagram-container .fa-user {
+    color: #4dabf7; /* Blue */
+}
+
+.diagram-container .fa-network-wired {
+    color: #28a745; /* Green */
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-link {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--accent-color);
+}
+
+/* Nostr icon styling */
+.nostr-icon {
+    width: 49px;
+    height: 49px;
+    object-fit: contain;
+    vertical-align: middle;
+    position: relative;
+    top: -8px;
+    left: -12px;
+    filter: brightness(0.9);
+}
+
+/* Removing hover effect */
+/* .social-link:hover .nostr-icon {
+    filter: brightness(1.1);
+} */
+
+.role-list {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.role-list li {
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+    color: var(--text-color);
+}
+
+.role-list li:last-child {
+    margin-bottom: 0;
+}
+
+.censorship-risk-section {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+.censorship-risk-section .detail-heading {
+    margin-top: 0;
+}
+
+.censorship-risk-section p {
+    margin-bottom: 0;
+}
+
+/* Remove bottom margin from the last detail-section in each column */
+.detail-column .detail-section:last-child {
+    margin-bottom: 0;
+}
+
+/* Styling for attack vectors list */
+.attack-vectors-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.attack-vectors-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    color: var(--text-color);
+}
+
+.attack-vectors-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Container to hold the panels */
+.panels-container {
+    position: relative;
+    margin-bottom: 0;
+}
+
+/* Page-specific hero backgrounds - using the same image for all pages */
+.homepage .hero,
+.calculator-page .hero,
+.mining-pools .hero,
+.attack-vectors-page .hero,
+.security-model-page .hero,
+.resources-page .hero {
+    background-image: url('../images/header.jpg');
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: var(--dark-bg);
+    border-left: 1px solid var(--border-color);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    padding: 5rem 1.5rem 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav-links li {
+    margin-bottom: 1.5rem;
+}
+
+.mobile-nav-links a {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a.active {
+    color: var(--primary-color);
+}
+
+.mobile-nav-links a.active::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+    margin-top: 5px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Menu toggle animation */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Landscape Mode Styles for Mobile Devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .mobile-nav {
+        width: 220px; /* Slightly smaller width in landscape */
+        padding-top: 3.5rem; /* Reduce top padding */
+    }
+    
+    .mobile-nav-links li {
+        margin-bottom: 0.8rem; /* Reduce spacing between items */
+    }
+    
+    .mobile-nav-links a {
+        font-size: 1rem; /* Smaller font size */
+        padding: 0.3rem 0; /* Less padding */
+    }
+    
+    .mobile-nav-links a.active::after {
+        margin-top: 3px; /* Smaller margin for active indicator */
+    }
+    
+    /* Ensure hamburger is visible and properly positioned */
+    .menu-toggle {
+        position: relative;
+        z-index: 1001;
+    }
+    
+    /* Menu toggle animation adjustments for landscape */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Resources Page Styles */
+.resource-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.resource-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.resource-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.resource-card h3 i {
+    margin-right: 0.75rem;
+    color: var(--primary-color);
+}
+
+.resource-links {
+    list-style: none;
+    padding: 0;
+}
+
+.resource-links li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.resource-links li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.resource-links a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* Removing link hover effect */
+.resource-links a:hover {
+    color: var(--primary-color);
+} 

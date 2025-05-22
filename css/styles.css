@@ -1,0 +1,650 @@
+/* Base Styles from main-styles.css */
+:root {
+    /* Using main-styles.css variables primarily */
+    --primary-color: #f7931a;
+    --primary-hover: #ffab40; /* Added hover from main-styles logic */
+    --secondary-color: #4d4d4d;
+    --accent-blue: #4dabf7; /* Consistent naming with main-styles.css */
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e; /* Use main card background */
+    --card-hover: #252525; /* Added hover from main-styles logic */
+    --text-color: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --border-color: #333;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+    
+    /* Specific variable for calculator card background for contrast */
+    --calc-card-bg: #282833;
+    --calc-border: rgba(255, 255, 255, 0.12); /* Keep original border for lighter card */
+    --calc-box-bg: #1f1f28; /* Maybe needed for definition panel bg */
+
+    /* Remove redundant calc colors since we have them defined elsewhere */
+    /* Keep specific calculator colors if needed */
+    --calc-orange: #ff9d3f;
+    --calc-red: #dc3545; /* Added for regulated miners text */
+    --calc-title: #ffffff;
+    
+    /* Unused/duplicate original variables removed */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+}
+
+a:hover {
+    color: #ffab40;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* --- END OF PREPENDED BASE STYLES --- */
+
+/* --- Original styles.css content starts here --- */
+
+.container { 
+    position: relative;
+    width: min(90%, 800px); /* Increased max-width from 600px */
+    padding: 2rem 2rem 1rem 2rem;
+    background: var(--calc-box-bg); /* Use specific calc box bg */
+    border-radius: 16px;
+    border: 1px solid var(--calc-border); /* Use specific calc border */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto; /* Add margin for spacing below nav */
+}
+
+/* Keep original h1 style for calculator page title */
+.container h1 {
+    color: var(--calc-title); /* Use specific calc title color */
+    text-align: center;
+    margin: 0 0 2rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+}
+
+/* Common card styles */
+.info-panel, .stats, .slider-container, .definitions-panel {
+    background: var(--calc-card-bg); /* Use specific calc card bg */
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--calc-border); /* Use specific calc border */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-panel {
+    text-align: center;
+}
+
+.info-panel h2 {
+    color: var(--calc-title); /* Use specific calc title color */
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+}
+
+.info-panel p {
+    margin: 0 auto 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.info-panel p:last-child {
+    margin-bottom: 0;
+}
+
+.note {
+    opacity: 0.9;
+    font-size: 0.95rem;
+    color: var(--text-secondary); /* Use text-secondary for consistency */
+    margin-top: 1.5rem;
+}
+
+.note a {
+    color: var(--accent-blue); /* Use consistent accent-blue variable name */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.note a:hover {
+    color: var(--accent-blue); /* Use consistent accent-blue variable name */
+}
+
+.note .attribution {
+    display: inline;
+    margin-left: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary); /* Use text-secondary for consistency */
+}
+
+/* Stats section */
+.stats {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.stat {
+    flex: 1;
+    text-align: center;
+}
+
+.stat h2 {
+    color: var(--text-secondary); /* Use text-secondary for consistency */
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.stat p {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-color); /* Use main text color for stat value */
+}
+
+/* Specific stat colors using mixed theme */
+#hashrate { color: var(--accent-blue); } /* Use accent-blue for consistency */
+#miners { color: var(--primary-color); } /* Keep miners orange */
+
+/* Slider section */
+.slider-container {
+    text-align: left;
+    transition: all var(--transition-speed) ease;
+}
+
+.slider-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.slider-group:last-child {
+    margin-bottom: 0;
+}
+
+.slider-group label {
+    display: block;
+    color: var(--text-color); /* Use main text color for better visibility */
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.slider-controls input[type="range"] {
+    flex: 1;
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    background: rgba(77, 171, 247, 0.2); /* Blue background (accent-blue with transparency) */
+    border-radius: 4px;
+    outline: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.slider-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color); /* Use primary color for consistency */
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(247, 147, 26, 0.3); /* Use rgba derived from --primary-color */
+}
+
+.slider-controls input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color); /* Use primary color for consistency */
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(247, 147, 26, 0.3); /* Use rgba derived from --primary-color */
+}
+
+.slider-controls span {
+    min-width: 80px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--accent-blue); /* Use consistent accent-blue variable name */
+}
+
+/* Enhance slider hover effects */
+.slider-controls input[type="range"]:hover {
+    background: rgba(77, 171, 247, 0.3); /* Slightly darker blue on hover */
+}
+
+.slider-controls input[type="range"]::-webkit-slider-thumb:hover {
+    background: var(--primary-hover);
+    transform: scale(1.1);
+}
+
+.slider-controls input[type="range"]::-moz-range-thumb:hover {
+    background: var(--primary-hover);
+    transform: scale(1.1);
+}
+
+/* Definitions section */
+.definitions-panel {
+    background: var(--calc-box-bg); /* Use specific calc box bg */
+    border: 1px solid var(--calc-border); /* Use specific calc border */
+}
+
+.definitions-panel h2 {
+    color: var(--calc-title); /* Use specific calc title color */
+    margin: 0 0 1.2rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--calc-border); /* Use specific calc border */
+}
+
+.definition {
+    margin-bottom: 1.2rem;
+    padding: 0.8rem;
+    background: var(--calc-card-bg); /* Use specific calc card bg */
+    border-radius: 8px;
+    border: 1px solid var(--calc-border); /* Use specific calc border */
+}
+
+.definition:last-child {
+    margin-bottom: 0;
+}
+
+.definition h4 {
+    color: var(--calc-orange); /* Use specific calc orange color */
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.3px;
+}
+
+.definition h4.regulated {
+    color: var(--calc-red); /* Use specific calc red color */
+}
+
+.definition p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    color: var(--text-color); /* Use main text color */
+}
+
+/* Info icon and modal */
+.info-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    color: var(--accent-blue); /* Use consistent accent-blue variable name */
+    cursor: pointer;
+    vertical-align: text-top;
+    margin-left: 5px;
+    transition: color 0.2s;
+}
+
+.info-icon:hover {
+    color: #68b5f8; /* Lighter blue on hover */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--calc-card-bg);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 20px;
+    color: #f8f9fa;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: var(--text-secondary); /* Use text-secondary for consistency */
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--calc-title); /* Use specific calc title color */
+}
+
+.modal h3 {
+    color: var(--calc-title); /* Use specific calc title color */
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--calc-border); /* Use specific calc border */
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0 0.5rem 0;
+    }
+    .container {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+    .stats {
+        flex-direction: column;
+    }
+    .info-panel, .stats, .slider-container, .definitions-panel {
+        padding: 1.2rem;
+    }
+    
+    .container h1 {
+        margin-top: 0; /* Adjust h1 margin if needed */
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+    }
+}
+
+.info-panel ul {
+    text-align: left;
+    margin: 0 auto 1rem;
+    padding-left: 1.5rem;
+    max-width: 540px;
+    list-style-type: none;
+}
+
+.info-panel ul li {
+    position: relative;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-color); /* Use main text color */
+}
+
+.info-panel ul li:before {
+    content: "•";
+    color: var(--accent-blue); /* Use consistent accent-blue variable name */
+    position: absolute;
+    left: -1rem;
+}
+
+.action-link {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.action-link a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--calc-card-bg); /* Use specific calc card bg */
+    color: var(--calc-orange); /* Use specific calc orange color */
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    border: 1px solid var(--calc-border); /* Use specific calc border */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-link a:hover {
+    background: var(--calc-box-bg); /* Use specific calc box bg */
+    border-color: var(--calc-orange); /* Use specific calc orange color */
+    transform: translateY(-1px);
+    color: var(--calc-orange); /* Use specific calc orange color */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content ul {
+    margin: 0 0 1rem;
+    padding-left: 1.5rem;
+    list-style-type: none;
+}
+
+.modal-content ul li {
+    position: relative;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.modal-content ul li:before {
+    content: "•";
+    color: var(--calc-orange); /* Use specific calc orange color */
+    position: absolute;
+    left: -1rem;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.footer .note {
+    margin-top: 0;
+    opacity: 0.8;
+    font-size: 0.95rem;
+    color: var(--text-secondary); /* Use text-secondary for consistency */
+}
+
+.footer .attribution {
+    display: inline;
+    margin-left: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary); /* Use text-secondary for consistency */
+}
+
+.alt-term {
+    font-size: 0.8rem;
+    font-weight: normal;
+    opacity: 0.8;
+    color: var(--text-secondary); /* Use text-secondary for consistency */
+}
+
+/* Remove the styles previously copied from main-styles.css */
+
+/* --- Appended Nav and Footer Styles --- */
+
+/* Navigation */
+.main-nav {
+    background-color: rgba(18, 18, 18, 0.95);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none; /* Added to remove underline */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0; /* Reset padding */
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    text-decoration: none; /* Added to remove underline */
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Footer */
+.main-footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid var(--border-color);
+    padding: 3rem 0 0;
+    margin-top: 4rem; /* Match main-styles.css */
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.footer-section p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--dark-bg);
+    color: var(--text-secondary);
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+/* Responsive Nav/Footer adjustments */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links li {
+        margin: 0.5rem;
+    }
+}

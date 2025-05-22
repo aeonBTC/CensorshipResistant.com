@@ -2,94 +2,187 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Defending Bitcoin</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#121212">
+    <title>Bitcoin Censorship Resistance</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://censorshipresistant.com/">
+    <meta property="og:site_name" content="Censorship Resistant">
+    <meta property="og:title" content="Bitcoin Censorship Resistance">
+    <meta property="og:description" content="Understanding and protecting Bitcoin's decentralized and permissionless nature.">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://censorshipresistant.com/">
+    <meta name="twitter:site" content="Censorship Resistant">
+    <meta name="twitter:title" content="Bitcoin Censorship Resistance">
+    <meta name="twitter:description" content="Understanding and protecting Bitcoin's decentralized and permissionless nature.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="scripts/script.js"></script>
+    <script src="scripts/mobile-menu.js"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>Censorship Resistance Threshold</h1>
+<body class="homepage">
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Censorship Resistant</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="security-model.html">Security Model</a></li>
+                <li><a href="mining-pools.html">Mining Pools</a></li>
+                <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                <li><a href="calculator.html">Resistance Calculator</a></li>
+                <li><a href="resources.html">Resources</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-        <div class="stats">
-            <div class="stat">
-                <h2>Current Bitcoin Hashrate</h2>
-                <p id="hashrate">Loading...</p>
-            </div>
-            <div class="stat">
-                <h2>Guerrilla Miners Needed</h2>
-                <p id="miners">Loading...</p>
-            </div>
-        </div>
-        
-        <div class="slider-container">          
-            <div class="slider-group">
-                <label>Hashpower per Guerrilla Miner <span class="info-icon" id="power-info-icon">ⓘ</span></label>
-                <div class="slider-controls">
-                    <input type="range" id="bitaxe-hashrate-slider" min="1" max="500" value="50" step="1">
-                    <span id="bitaxe-value">50 TH/s</span>
-                </div>
-            </div>
-            
-            <div class="slider-group">
-                <label>Existing Guerrilla Hashrate <span class="info-icon" id="guerrilla-info-icon">ⓘ</span></label>
-                <div class="slider-controls">
-                    <input type="range" id="black-market-miners-slider" min="0" max="51" value="5">
-                    <span id="slider-value">5%</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="action-link">
-            <a href="https://bitaxe.org/" target="_blank" rel="noopener">Become a guerrilla miner!</a>
-        </div>
-        
-        <div class="info-panel">
-            <h2>About This Metric</h2>
-            <p>This calculator helps determine Bitcoin's censorship resistance by estimating how many guerrilla miners are needed to fully secure the network. For Bitcoin to resist on-chain censorship, at least 51% of the total network hashrate must come from miners operating outside regulatory control.</p>
-            <p>The calculation accounts for any existing guerrilla hashrate and determines how many more guerrilla miners of a specified hashpower would be needed to reach the critical 51% censorship resistance threshold.</p>
-        </div>
-
-        <div class="definitions-panel">
-            <h2>Terminology</h2>
-            <div class="definition">
-                <h4>Guerrilla Miners <span class="alt-term">(Black Market Miners)</span></h4>
-                <p>Bitcoin miners that operate covertly without regulatory oversight, often in small-scale or home setups distributed globally. These miners contribute to network decentralization by remaining anonymous and resistant to forced censorship or government capture.</p>
-            </div>
-            <div class="definition">
-                <h4 class="regulated">Regulated Miners <span class="alt-term">(White Market Miners)</span></h4>
-                <p>Bitcoin miners that operate openly under regulatory oversight, typically as registered companies in industrial-scale facilities. These miners must comply with local regulations and are vulnerable to regulatory pressure, censorship mandates, and government capture.</p>
-            </div>
-        </div>
-        
-        <div id="info-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <div id="guerrilla-info" style="display: none;">
-                    <h3>Existing Guerrilla Hashrate</h3>
-                    <p>This slider sets what percentage of Bitcoin's current hashrate is <strong>already</strong> coming from guerrilla miners.</p>
-                    <p><strong>How it works:</strong> If set to 15%, it means:</p>
-                    <ul>
-                        <li>15% of current hashrate is already guerrilla miners</li>
-                        <li>We need to add enough new miners to make the <em>total</em> resistant hashrate reach 51%</li>
-                        <li>The higher this percentage, the fewer additional miners needed</li>
-                    </ul>
-                </div>
-                <div id="power-info" style="display: none;">
-                    <h3>Hashpower per Guerrilla Miner</h3>
-                    <p>This slider sets the hashpower of each <strong>additional</strong> guerrilla miner added to the network.</p>
-                    <p><strong>How it works:</strong></p>
-                    <ul>
-                        <li>The total additional hashrate needed is divided by this value</li>
-                        <li>Higher TH/s = fewer additional miners needed</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p class="note"><i>"The only secure hash is unknown hash."</i> <span class="attribution">— <a href="https://x.com/aeonBTC" target="_blank">@æonBTC</a></span></p>
-        </div>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="security-model.html">Security Model</a></li>
+            <li><a href="mining-pools.html">Mining Pools</a></li>
+            <li><a href="attack-vectors.html">Attack Vectors</a></li>
+            <li><a href="calculator.html">Resistance Calculator</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
     </div>
-    <script src="script.js"></script>
+    
+    <!-- Overlay for mobile menu -->
+    <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bitcoin Censorship Resistance</h1>
+            <p>Understanding and protecting Bitcoin's decentralized and permissionless nature.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="content-section">
+            <h2>What is Censorship Resistance?</h2>
+            <div class="content-grid">
+                <div class="content-text">
+                    <p>Censorship resistance is Bitcoin's ability to process transactions regardless of their origin, destination, or purpose, without third-party interference. This fundamental property ensures that Bitcoin remains neutral, permissionless, and accessible to everyone.</p>
+                    <p>For Bitcoin to maintain this property, its mining infrastructure must be sufficiently decentralized to prevent any single entity or group from controlling transaction inclusion or exclusion. This means a significant portion of the network's hashrate should come from miners that operate outside of regulated markets.</p>
+                </div>
+                <div class="content-image">
+                    <img src="images/bitcoin-img.svg" alt="Bitcoin Network">
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Concepts -->
+        <section class="content-section">
+            <h2>Key Concepts</h2>
+            <div class="concept-cards">
+                <div class="concept-card">
+                    <h3>The 51% Attack Threshold</h3>
+                    <p>For Bitcoin to remain censorship resistant, at least 51% of the total network hashrate should come from miners that cannot be easily targeted by governments or regulators. This threshold represents the fundamental security boundary that prevents any entity from successfully censoring transactions.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Guerrilla Mining<br><small style="color: white;">(Black Market)</small></h3>
+                    <p>Miners operating covertly outside the regulatory framework, typically in distributed small-scale or home environments. Their anonymous nature and geographic dispersion make them resistant to regulatory pressures, providing a crucial foundation for Bitcoin's censorship resistance.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Regulated Mining<br><small style="color: white;">(White Market)</small></h3>
+                    <p>Miners operating as registered businesses under regulatory supervision, generally in large industrial facilities. Their compliance requirements make them susceptible to governmental control and policy mandates, creating potential vectors for on-chain censorship if they control too much hashrate.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Permissionless Architecture</h3>
+                    <p>Bitcoin's fundamental design allows anyone to participate without requiring approval from any central authority. This architectural property ensures that no single entity can control who may access the network, submit transactions, or contribute hashrate, creating a structurally robust defense against censorship.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Status -->
+        <section class="content-section dark-bg">
+            <h2>Current Bitcoin Network Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-cube"></i>
+                    <h3>Block Height</h3>
+                    <p class="stat-value" id="current-block-height">Loading...</p>
+                    <p class="stat-description">Current block height</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Network Hashrate</h3>
+                    <p class="stat-value" id="current-hashrate">Loading...</p>
+                    <p class="stat-description">Current network hashrate</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-link"></i>
+                    <h3>Network Difficulty</h3>
+                    <p class="stat-value" id="current-difficulty">Loading...</p>
+                    <p class="stat-description">Current network difficulty</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-coins"></i>
+                    <h3>Block Fees</h3>
+                    <p class="stat-value" id="current-fees">Loading...</p>
+                    <p class="stat-description">Average fees per block</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CensorshipResistant.com</h3>
+                <p>
+                    Understanding and protecting Bitcoin's decentralized and permissionless nature.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="security-model.html">Security Model</a></li>
+                    <li><a href="mining-pools.html">Mining Pools</a></li>
+                    <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                    <li><a href="calculator.html">Resistance Calculator</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Links</h3>
+                <div class="social-links">
+                    <a href="https://github.com/aeonBTC" class="social-link" target="_blank">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <a href="https://x.com/aeonBTC" class="social-link" target="_blank">
+                        <i class="fa-brands fa-x-twitter fa-2x"></i>
+                    </a>
+                    <a href="https://iris.to/npub1umeupsqaqrhnx0xzrtygz4fz3n63d5zd36e4nkkr6n9n38xg4teqc7z93q" class="social-link" target="_blank">
+                        <img src="images/nostr.png" alt="Nostr" class="nostr-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><a href="https://x.com/aeonBTC/status/1647682869035413505" target="_blank">"Institutional miners are a security risk.<br>The only secure hash is unknown hash."</a></p>
+        </div>
+    </footer>
 </body>
 </html>

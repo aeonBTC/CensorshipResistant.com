@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#121212">
+    <title>Mining Pools | Bitcoin Censorship Resistance</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://censorshipresistant.com/mining-pools.html">
+    <meta property="og:site_name" content="Censorship Resistant">
+    <meta property="og:title" content="Mining Pools | Bitcoin Censorship Resistance">
+    <meta property="og:description" content="Evaluating the risks, benefits, and trade-offs of different Bitcoin mining approaches.">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://censorshipresistant.com/mining-pools.html">
+    <meta name="twitter:site" content="Censorship Resistant">
+    <meta name="twitter:title" content="Mining Pools | Bitcoin Censorship Resistance">
+    <meta name="twitter:description" content="Evaluating the risks, benefits, and trade-offs of different Bitcoin mining approaches.">
+    
+    <link rel="stylesheet" href="css/main-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="scripts/mining-pools.js"></script>
+    <script src="scripts/mobile-menu.js"></script>
+</head>
+<body class="mining-pools">
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Censorship Resistant</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="security-model.html">Security Model</a></li>
+                <li><a href="mining-pools.html" class="active">Mining Pools</a></li>
+                <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                <li><a href="calculator.html">Resistance Calculator</a></li>
+                <li><a href="resources.html">Resources</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="security-model.html">Security Model</a></li>
+            <li><a href="mining-pools.html" class="active">Mining Pools</a></li>
+            <li><a href="attack-vectors.html">Attack Vectors</a></li>
+            <li><a href="calculator.html">Resistance Calculator</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mining Pools</h1>
+            <p>Evaluating the risks, benefits, and trade-offs of different mining approaches.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="content-section">
+            <h2>Explore Mining Pool Architecture</h2>
+            <p>Bitcoin mining methods are fundamentally either centralized or decentralized. Centralized approaches offer efficiency but introduce central points of control, while decentralized methods remove trusted third parties but introduce ineffecienies. Explore the interactive flowchart below to understand the differences between these mining methods.</p><br>
+            
+            <div class="flowchart-container">
+
+                <div class="methods-container">
+                    <div class="centralized-container">
+                        <div class="container-label centralized-label">
+                            <i class="fas fa-server"></i> Centralized
+                        </div>
+                        <div class="methods-grid-centralized">
+                            <div class="method-card" data-method="pool-mining">
+                                <div class="method-title">Pool Mining</div><br>
+                                <div class="method-icon">
+                                    <i class="fas fa-server fa-3x"></i>
+                                </div>
+                                <p>Shared payouts with centralized control.</p>
+                            </div>
+                            
+                            <div class="method-card" data-method="solo-pool-mining">
+                                <div class="method-title">Solo Pool Mining</div><br>
+                                <div class="method-icon">
+                                    <i class="fas fa-dice fa-3x"></i>
+                                </div>
+                                <p>Individual payouts with centralized control.</p>
+                            </div>
+                            
+                            <div class="method-card" data-method="decoupled-pool-mining">
+                                <div class="method-title">Decoupled Pool Mining</div>
+                                <div class="method-icon">
+                                    <i class="fas fa-link fa-3x"></i>
+                                </div>
+                                <p>Custom templates with centralized control.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="decentralized-container">
+                        <div class="container-label decentralized-label">
+                            <i class="fas fa-network-wired"></i> Decentralized
+                        </div>
+                        <div class="methods-grid-decentralized">
+                            <div class="method-card" data-method="decentralized-pool-mining">
+                                <div class="method-title">Decentralized Pool Mining</div>
+                                <div class="method-icon">
+                                    <i class="fas fa-network-wired fa-3x"></i>
+                                </div>
+                                <p>Peer-to-peer with shared payouts.</p>
+                            </div>
+                            
+                            <div class="method-card" data-method="solo-mining">
+                                <div class="method-title">Solo Mining</div><br>
+                                <div class="method-icon">
+                                    <i class="fas fa-user fa-3x"></i>
+                                </div>
+                                <p>Sovereign mining with independent control.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Container for all detail panels -->
+                <div class="panels-container">
+                    <!-- Pool Mining Details -->
+                    <div class="detail-panel" id="pool-mining-details">
+                        <h3 class="method-title">Pool Mining</h3>
+                        
+                        <div class="diagram-container">
+                            <i class="fas fa-user-group fa-4x"></i>
+                            <i class="fas fa-arrows-left-right fa-2x"></i>
+                            <i class="fas fa-server fa-4x"></i>
+                            <i class="fas fa-arrows-left-right fa-2x"></i>
+                            <i class="fab fa-bitcoin fa-4x"></i>
+                        </div>
+                        
+                        <div class="detail-grid">
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Overview</h4>
+                                    <p>Traditional mining pools are the most common type of mining operation. A central pool server controls all aspects of the mining process, including transaction selection and reward distribution. Miners simply provide hashing power and receive rewards proportional to their contribution.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Architecture</h4>
+                                    <ol class="detail-list">
+                                        <li>The pool runs a Bitcoin node and a pool server.</li>
+                                        <li>Miners connect to the pool server.</li>
+                                        <li>The pool builds blocks, chooses the transactions, and controls the coinbase payout.</li>
+                                        <li>Miners hash jobs from the pool server until a block is found, the pool server then broadcasts the block to the Bitcoin network.</li>
+                                        <li>The pool pays out miners proportional to their contribution.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Roles</h4>
+                                    <div class="roles-list">
+                                        <div class="role-item">
+                                            <div class="role-title server-role">Pool Server:</div>
+                                            <ul class="role-list">
+                                                <li>Runs a Bitcoin node</li>
+                                                <li>Builds blocks</li>
+                                                <li>Chooses transactions</li>
+                                                <li>Controls coinbase payout</li>
+                                                <li>Broadcasts blocks to the Bitcoin network</li>
+                                            </ul>
+                                        </div>
+                                        <div class="role-item">
+                                            <div class="role-title miners-role">Miners:</div>
+                                            <ul class="role-list">
+                                                <li>Hashes work from the pool server</li>
+                                                <li>Submits solution to the pool server</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Examples</h4>
+                                    <div class="examples-list">
+                                        <span class="example-tag">AntPool</span>
+                                        <span class="example-tag">Foundry</span>
+                                        <span class="example-tag">F2Pool</span>
+                                        <span class="example-tag">ViaBTC</span>
+                                        <span class="example-tag">Luxor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="censorship-risk-section">
+                            <h4 class="detail-heading">Attack Vectors</h4>
+                            <ul class="attack-vectors-list">
+                                <li>Pool operators exist as a centralized point of control and can be targeted by regulators to implement KYC, censor transactions, or withhold payouts.</li>
+                                <li>Pool operators have unilateral control over the pool server.</li>
+                                <li>Fundamentally a client-server relationship; miners depend on the pool server to coordinate.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Solo Pool Mining Details -->
+                    <div class="detail-panel" id="solo-pool-mining-details">
+                        <h3 class="method-title">Solo Pool Mining</h3>
+                        
+                        <div class="diagram-container">
+                            <i class="fas fa-user-group fa-4x"></i>
+                            <i class="fas fa-arrows-left-right fa-2x"></i>
+                            <i class="fas fa-server fa-4x"></i>
+                            <i class="fas fa-arrows-left-right fa-2x"></i>
+                            <i class="fab fa-bitcoin fa-4x"></i>
+                        </div>
+                        
+                        <div class="detail-grid">
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Overview</h4>
+                                    <p>Solo Pool Mining offers individual mining rewards. Unlike traditional pool mining where rewards are shared proportionally, each miner in a solo pool receives the full block reward when they find a block, while still relying on the pool server for everything else.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Architecture</h4>
+                                    <ol class="detail-list">
+                                        <li>The pool runs a Bitcoin node and a pool server.</li>
+                                        <li>Miners connect to the pool server.</li>
+                                        <li>The pool builds blocks, chooses the transactions, and controls the coinbase payout.</li>
+                                        <li>Miners hash jobs from the pool server until a block is found, the pool server then broadcasts the block to the Bitcoin network.</li>
+                                        <li>The pool pays out the full block reward to miner who found the block.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Roles:</h4>
+                                    <div class="roles-list">
+                                        <div class="role-item">
+                                            <div class="role-title server-role">Pool Server:</div>
+                                            <ul class="role-list">
+                                                <li>Runs a Bitcoin node</li>
+                                                <li>Builds blocks</li>
+                                                <li>Chooses transactions</li>
+                                                <li>Controls coinbase payout</li>
+                                                <li>Broadcasts blocks to the Bitcoin network</li>
+                                            </ul>
+                                        </div>
+                                        <div class="role-item">
+                                            <div class="role-title miners-role">Miners:</div>
+                                            <ul class="role-list">
+                                                <li>Hash work from the pool server</li>
+                                                <li>Submit solution to the pool server</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Examples</h4>
+                                    <div class="examples-list">
+                                        <span class="example-tag">CKPool</span>
+                                        <span class="example-tag">PublicPool</span>
+                                        <span class="example-tag">PyBLOCK</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="censorship-risk-section">
+                            <h4 class="detail-heading">Attack Vectors</h4>
+                            <ul class="attack-vectors-list">
+                                <li>Pool operators exist as a centralized point of control and can be targeted by regulators to implement KYC, censor transactions, or withhold payouts.</li>
+                                <li>Pool operators have unilateral control over the pool server.</li>
+                                <li>Fundamentally a client-server relationship; coordination depends entirely on the pool server.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Decoupled Pool Mining Details -->
+                    <div class="detail-panel" id="decoupled-pool-mining-details">
+                        <h3 class="method-title">Decoupled Pool Mining</h3>
+                        
+                        <div class="diagram-container">
+                            <i class="fas fa-server fa-4x"></i>
+                            <i class="fas fa-arrows-left-right fa-2x"></i>
+                            <i class="fas fa-user-group fa-4x"></i>
+                            <i class="fas fa-arrows-left-right fa-2x"></i>
+                            <i class="fab fa-bitcoin fa-4x"></i>
+                        </div>
+                        
+                        <div class="detail-grid">
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Overview</h4>
+                                    <p>Decoupled pool mining is similar to traditional pool mining, but involves miners running their own Bitcoin nodes and choosing their own transactions, while still relying on the pool server for the coinbase payout.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Architecture</h4>
+                                    <ol class="detail-list">
+                                        <li>The pool runs a Bitcoin node and a pool server.</li>
+                                        <li>Miners run a Bitcoin node and connect to the pool server.</li>
+                                        <li>The pool coordinates and adminstrates the coinbase payout.</li>
+                                        <li>Miners build blocks, choose transactions, and hash until a block is found.</li>
+                                        <li>The miner who finds a block broadcasts it to the Bitcoin network.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Roles</h4>
+                                    <div class="roles-list">
+                                        <div class="role-item">
+                                            <div class="role-title server-role">Pool Server:</div>
+                                            <ul class="role-list">
+                                                <li>Runs a Bitcoin node</li>
+                                                <li>Controls coinbase payout</li>
+                                                <li>Broadcasts blocks to the Bitcoin network</li>
+                                            </ul>
+                                        </div>
+                                        <div class="role-item">
+                                            <div class="role-title miners-role">Miners</div>
+                                            <ul class="role-list">
+                                                <li>Run a Bitcoin node</li>
+                                                <li>Build blocks</li>
+                                                <li>Choose transactions</li>
+                                                <li>Hash blocks</li>
+                                                <li>Broadcast blocks to the Bitcoin network</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Examples</h4>
+                                    <div class="examples-list">
+                                        <span class="example-tag">OCEAN</span>
+                                        <span class="example-tag">DMND Pool</span>
+                                        <span class="example-tag">StratumV2 Pools</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="censorship-risk-section">
+                            <h4 class="detail-heading">Attack Vectors</h4>
+                            <ul class="attack-vectors-list">
+                                <li>Pool operators exist as a centralized point of control and can be targeted by regulators to implement KYC, reject templates, or withhold payouts.</li>
+                                <li>Pool operators have unilateral control over the pool server.</li>
+                                <li>Fundamentally a client-server relationship; coordination depends entirely on the pool server.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Decentralized Pool Mining Details -->
+                    <div class="detail-panel" id="decentralized-pool-mining-details">
+                        <h3 class="method-title">Decentralized Pool Mining</h3>
+                        
+                        <div class="diagram-container">
+                            <i class="fas fa-network-wired fa-4x"></i>
+                            <i class="fas fa-arrows-left-right fa-2x"></i>
+                            <i class="fas fa-user-group fa-4x"></i>
+                            <i class="fas fa-arrows-left-right fa-2x"></i>
+                            <i class="fab fa-bitcoin fa-4x"></i>
+                        </div>
+                        
+                        <div class="detail-grid">
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Overvie:</h4>
+                                    <p>Decentralized pool mining involves miners running their own Bitcoin node alongside a peer-to-peer pool node. The miners directly connect to each other to track their contributions and coordinate the coinbase payout. This method removes the need for a centralized pool server but introduces some latency and inefficiency.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Architecture</h4>
+                                    <ol class="detail-list">
+                                        <li>Miners run a Bitcoin node and a peer-to-peer pool node.</li>
+                                        <li>Miners build blocks and chooses their transactions.</li>
+                                        <li>Miners share and check each others work to coordinate the coinbase payout.</li>
+                                        <li>Miners hash until a block is found.</li>
+                                        <li>Miner who finds a block broadcasts it to the Bitcoin network and shares the block reward with the other miners.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Roles</h4>
+                                    <div class="roles-list">
+                                        <div class="role-item">
+                                            <div class="role-title miners-role">Miners:</div>
+                                            <ul class="role-list">
+                                                <li>Run a Bitcoin</li>
+                                                <li>Run a P2P pool node</li>
+                                                <li>Build blocks</li>
+                                                <li>Choose transactions</li>
+                                                <li>Coordinate coinbase payout</li>
+                                                <li>Hash blocks</li>
+                                                <li>Broadcast blocks to the Bitcoin network</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Examples</h4>
+                                    <div class="examples-list">
+                                        <span class="example-tag">Braidpool</span>
+                                        <span class="example-tag">P2Pool-v2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="censorship-risk-section">
+                            <h4 class="detail-heading">Attack Vectors</h4>
+                            <ul class="attack-vectors-list">
+                                <li>Minimal - There is no centralized pool server to attack.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Solo Mining Details -->
+                    <div class="detail-panel" id="solo-mining-details">
+                        <h3 class="method-title">Solo Mining</h3>
+                        
+                        <div class="diagram-container">
+                            <i class="fas fa-user fa-4x"></i>
+                            <i class="fas fa-arrows-left-right fa-2x"></i>
+                            <i class="fab fa-bitcoin fa-4x"></i>
+                        </div>
+                        
+                        <div class="detail-grid">
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Overview</h4>
+                                    <p>Solo mining is the method of mining that Bitcoin was designed for. It involves a miner running a full Bitcoin node and mining independently without the help of a pool or other miners. This method offers complete control and independence from trusted third parties, but also introduces higher variance in block rewards.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Architecture</h4>
+                                    <ol class="detail-list">
+                                        <li>Miner runs a Bitcoin node and a self-hosted pool or solo gateway.</li>
+                                        <li>Miner builds blocks, chooses the transactions, and controls the coinbase payout.</li>
+                                        <li>Miner hashes until a block is found.</li>
+                                        <li>When a block is found the miner broadcasts it to the Bitcoin network and the receives the block reward.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-column">
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Roles</h4>
+                                    <div class="roles-list">
+                                        <div class="role-item">
+                                            <div class="role-title miners-role">Miner:</div>
+                                            <ul class="role-list">
+                                                <li>Runs a Bitcoin node</li>
+                                                <li>Runs a self-hosted pool or solo gateway</li>
+                                                <li>Builds blocks</li>
+                                                <li>Chooses transactions</li>
+                                                <li>Controls coinbase payout</li>
+                                                <li>Hashes blocks</li>
+                                                <li>Broadcasts blocks to the Bitcoin network</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-section">
+                                    <h4 class="detail-heading">Examples</h4>
+                                    <div class="examples-list">
+                                        <span class="example-tag">CKPool (self-hosted)</span>
+                                        <span class="example-tag">PublicPool (self-hosted)</span>
+                                        <span class="example-tag">DATUM (solo-mode)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="censorship-risk-section">
+                            <h4 class="detail-heading">Attack Vectors</h4>
+                            <ul class="attack-vectors-list">
+                                <li>None - Solo mining is the most decentralized method of mining.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CensorshipResistant.com</h3>
+                <p>
+                    Understanding and protecting Bitcoin's decentralized and permissionless nature.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="security-model.html">Security Model</a></li>
+                    <li><a href="mining-pools.html">Mining Pools</a></li>
+                    <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                    <li><a href="calculator.html">Resistance Calculator</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Links</h3>
+                <div class="social-links">
+                    <a href="https://github.com/aeonBTC" class="social-link" target="_blank">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <a href="https://x.com/aeonBTC" class="social-link" target="_blank">
+                        <i class="fa-brands fa-x-twitter fa-2x"></i>
+                    </a>
+                    <a href="https://iris.to/npub1umeupsqaqrhnx0xzrtygz4fz3n63d5zd36e4nkkr6n9n38xg4teqc7z93q" class="social-link" target="_blank">
+                        <img src="images/nostr.png" alt="Nostr" class="nostr-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><a href="https://x.com/aeonBTC/status/1647682869035413505" target="_blank">"Institutional miners are a security risk.<br>The only secure hash is unknown hash."</a></p>
+        </div>
+    </footer>
+</body>
+</html>
