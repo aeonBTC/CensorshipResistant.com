@@ -33,12 +33,11 @@
     <!-- Navigation Bar -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">Censorship Resistant</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="security-model.html">Security Model</a></li>
-                <li><a href="mining-pools.html">Mining Pools</a></li>
                 <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                <li><a href="mining-pools.html">Mining Pools</a></li>
                 <li><a href="calculator.html">Resistance Calculator</a></li>
                 <li><a href="resources.html" class="active">Resources</a></li>
             </ul>
@@ -55,8 +54,8 @@
         <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="security-model.html">Security Model</a></li>
-            <li><a href="mining-pools.html">Mining Pools</a></li>
             <li><a href="attack-vectors.html">Attack Vectors</a></li>
+            <li><a href="mining-pools.html">Mining Pools</a></li>
             <li><a href="calculator.html">Resistance Calculator</a></li>
             <li><a href="resources.html" class="active">Resources</a></li>
         </ul>
@@ -68,18 +67,108 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Bitcoin Resources</h1>
-            <p>A curated collection of materials on Bitcoin censorship resistance and decentralization.</p>
+            <h1>Resources</h1>
+            <p>A collection of valuable Bitcoin research, tools, and educational materials.</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Coming Soon Section -->
         <section class="content-section">
-            <div class="coming-soon" style="text-align: center; padding: 4rem 2rem;">
-                <i class="fas fa-tools fa-4x" style="color: var(--primary-color); margin-bottom: 2rem;"></i>
-                <h2>Content Coming Soon</h2>
+            <h2>Education</h2>
+            <div class="resource-cards">
+                <div class="resource-card">
+                    <h3><i class="fas fa-book"></i>Fundamentals</h3>
+                    <ul class="resource-links">
+                        <li><a href="https://bitcoin.org/bitcoin.pdf" target="_blank">Bitcoin: A Peer-to-Peer Electronic Cash System</a></li>
+                        <li><a href="https://voskuil.org/cryptoeconomics/index.html" target="_blank">Cryptoeconomics: Fundamental Principles of Bitcoin</a></li>
+                        <li><a href="https://youtu.be/fMVcjQ_-mGo?si=bh9cXlYLLopCphGU" target="_blank">Eric Voskuil Presents Black Market Money</a></li>
+                        <li><a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Other-Means-Principle" target="_blank">Other Means Principle</a></li>
+                    </ul>
+                </div>                
+                <div class="resource-card">
+                    <h3><i class="fas fa-network-wired"></i>Security</h3>
+                    <ul class="resource-links">                      
+                        <li><a href="https://sgbarbour.medium.com/the-state-vs-bitcoin-dbc044f23ea6" target="_blank">The State vs. Bitcoin: The Sustainability of Censorship Resistance</a></li>
+                        <li><a href="https://bullishthoughts.substack.com/p/the-elephants-in-the-grid" target="_blank">Elephant in the Grid: Not as Bullish on Bitcoin Mega-Miners</a></li>
+                        <li><a href="https://juraj.bednar.io/en/blog-en/2020/11/12/how-could-regulators-successfully-introduce-bitcoin-censorship-and-other-dystopias/" target="_blank">How Regulators Could Introduce Bitcoin Censorship</a></li>
+                        <li><a href="https://joekelly100.medium.com/how-to-kill-bitcoin-part-1-is-bitcoin-unstoppable-code-7a1b366f65ee" target="_blank">How To Kill Bitcoin: Is Bitcoin 'Unstoppable Code'?</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="resource-cards">
+                <div class="resource-card">
+                    <h3><i class="fas fa-cubes"></i>Mining Pools</h3>
+                    <ul class="resource-links">
+                        <li><a href="https://bitcoinmagazine.com/technical/p2pool-bitcoin-mining-decentralization" target="_blank">How P2P Protocols Seek To Solve Bitcoin Mining Centralization</a></li>
+                        <li><a href="https://youtu.be/rsMujxqgHeQ?t=14783" target="_blank">Braidpool Presentation</a> - <a href="https://github.com/braidpool/braidpool" target="_blank">GitHub</a></li>
+                        <li><a href="https://youtu.be/nUQlBxWwlaU?t=2243" target="_blank">P2Pool-v2 Presentation</a> - <a href="https://github.com/pool2win/p2pool-v2" target="_blank">GitHub</a></li>
+                        <li><a href="https://hashpool.dev/" target="_blank">Hashpool</a> - <a href="https://github.com/vnprc/hashpool" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h3><i class="fas fa-layer-group"></i>Miscellaneous</h3>
+                    <ul class="resource-links">
+                        <li><a href="https://petertodd.org/2016/mit-chainanchor-bribing-miners-to-regulate-bitcoin" target="_blank">MIT ChainAnchor: Bribing Miners to Regulate Bitcoin</a></li>
+                        <li><a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Risk-Sharing-Principle" target="_blank">Risk Sharing Principle</a></li>
+                        <li><a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Censorship-Resistance-Property" target="_blank">Censorship Resistance Property</a></li>
+                        <li><a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Decoupled-Mining-Fallacy" target="_blank">Decoupled Mining Fallacy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+        <section class="content-section">
+            <h2>Home Mining</h2>
+            <div class="resource-cards">
+                <div class="resource-card">
+                    <h3><i class="fas fa-microchip"></i>Hardware</h3>
+                    <ul class="resource-links">
+                        <li><a href="https://bitaxe.org/" target="_blank">Bitaxe - Open Source ASIC Miner</a></li>
+                        <li><a href="https://d-central.tech/product-category/bitcoin-mining-heaters/" target="_blank">D-Central - Mining Space Heaters</a></li>
+                        <li><a href="https://altairtech.io/product-category/miners/" target="_blank">Altairtech - Miner Reseller</a></li>
+                        <li><a href="https://www.cryptocloaks.com/product-category/mining/" target="_blank">Cryptocloaks - Mining Accessories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h3><i class="fas fa-book-open"></i>Information</h3>
+                    <ul class="resource-links">
+                        <li><a href="https://256foundation.org/" target="_blank">The 256 Foundation</a></li>
+                        <li><a href="https://osmu.wiki/" target="_blank">Open Source Miners United</a></li>
+                        <li><a href="https://www.solosatoshi.com/blog/" target="_blank">The Home Mining Blog</a></li>
+                        <li><a href="https://nerdminerstore.com/blog/" target="_blank">Nerdminer Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Metrics & Tools</h2>
+            <div class="resource-cards">
+                <div class="resource-card">
+                    <h3><i class="fas fa-chart-line"></i>Network Metrics</h3>
+                    <ul class="resource-links">
+                        <li><a href="https://mempool.space/" target="_blank">Mempool.space - Blockchain Explorer</a></li>
+                        <li><a href="https://bitnodes.io/" target="_blank">Bitnodes - Bitcoin Nodes Distribution</a></li>
+                        <li><a href="https://b10c.me/" target="_blank">0xB10C - Bitcoin Network Observer</a></li>
+                        <li><a href="https://stratum.work/" target="_blank">Stratum.work - Mining Pool Template Visualizer</a></li>
+                        <li><a href="https://bitcoin.clarkmoody.com/dashboard/" target="_blank">Clarkmoody - Bitcoin Network Dashboard</a></li>
+                        <li><a href="https://timechaincalendar.com/en" target="_blank">Timechain Calendar - Blockchain Visualizer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h3><i class="fas fa-cogs"></i>Practical Tools</h3>
+                    <ul class="resource-links">
+                        <li><a href="https://github.com/aeonBTC/Mempal" target="_blank">Mempal - Bitcoin Mempool Monitor</a></li>
+                        <li><a href="https://bitcoincore.org/" target="_blank">Bitcoin Core - Full Node Software</a></li>                        
+                        <li><a href="https://umbrel.com/" target="_blank">Umbrel - Plug and Play Bitcoin Server</a></li>
+                        <li><a href="https://sparrowwallet.com/" target="_blank">Sparrow - Desktop Bitcoin Wallet</a></li>
+                        <li><a href="https://jlopp.github.io/bitcoin-confirmation-risk-calculator/" target="_blank">Bitcoin Confirmation Risk Calculator</a></li>
+                        <li><a href="https://solochance.com/" target="_blank">Solo Chance - Bitcoin Mining Simulator</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
@@ -98,8 +187,8 @@
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="security-model.html">Security Model</a></li>
-                    <li><a href="mining-pools.html">Mining Pools</a></li>
                     <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                    <li><a href="mining-pools.html">Mining Pools</a></li>
                     <li><a href="calculator.html">Resistance Calculator</a></li>
                     <li><a href="resources.html">Resources</a></li>
                 </ul>

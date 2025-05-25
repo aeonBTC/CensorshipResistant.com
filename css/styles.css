@@ -500,151 +500,56 @@ img {
 /* --- Appended Nav and Footer Styles --- */
 
 /* Navigation */
-.main-nav {
-    background-color: rgba(18, 18, 18, 0.95);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(5px);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none; /* Added to remove underline */
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    padding: 0; /* Reset padding */
-}
-
-.nav-links li {
-    margin-left: 1.5rem;
-}
-
-.nav-links a {
-    color: var(--text-color);
-    font-weight: 500;
-    padding: 0.5rem 0;
-    position: relative;
-    text-decoration: none; /* Added to remove underline */
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
-
-.nav-links a.active {
-    color: var(--primary-color);
-}
-
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
-}
+/* Removing duplicate navigation styles since they're handled by main-styles.css */
 
 /* Footer */
-.main-footer {
-    background-color: #0a0a0a;
-    border-top: 1px solid var(--border-color);
-    padding: 3rem 0 0;
-    margin-top: 4rem; /* Match main-styles.css */
-    width: 100%;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    left: 0;
-    right: 0;
-}
+/* Removing duplicate footer styles since they're handled by main-styles.css */
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.footer-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.footer-section p {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--primary-color);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 0;
-    border-top: 1px solid var(--border-color);
-    background-color: var(--dark-bg);
-    color: var(--text-secondary);
-    width: 100%;
-    position: relative;
-    left: 0;
-    right: 0;
-}
-
-/* Responsive Nav/Footer adjustments */
+/* Specific styles needed only for the calculator page */
 @media screen and (max-width: 768px) {
-    .nav-container {
+    /* Keep only calculator-specific media query styles here */
+    /* Responsive adjustments for calculator UI */
+    .stats {
         flex-direction: column;
-        padding: 1rem;
+        gap: 1rem;
     }
     
-    .logo {
-        margin-bottom: 1rem;
+    .slider-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
     
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
+    .slider-controls span {
+        text-align: left;
+    }
+}
+
+/* Calculator-specific overrides */
+.calculator-page .menu-toggle {
+    display: none !important; /* Initially hidden with higher priority */
+}
+
+/* Ensure the menu toggle is shown on mobile for the calculator page */
+@media screen and (max-width: 768px), (max-height: 500px) and (orientation: landscape) {
+    .calculator-page .menu-toggle {
+        display: flex !important; /* Force display with highest priority */
     }
     
-    .nav-links li {
-        margin: 0.5rem;
+    .calculator-page .nav-links {
+        display: none !important; /* Force hide with highest priority */
+    }
+    
+    /* Reset any other potentially conflicting styles */
+    .calculator-page .nav-container {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 1rem 2rem !important; /* Match the padding from main-styles.css */
+    }
+    
+    /* Ensure logo is not causing the container to center align */
+    .calculator-page .logo {
+        margin-bottom: 0 !important;
     }
 }

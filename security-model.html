@@ -38,10 +38,12 @@
         
         .key-concept {
             font-weight: bold;
+            color: inherit;
         }
         
         .content-highlight {
             font-weight: bold;
+            color: inherit;
         }
     </style>
 </head>
@@ -49,12 +51,11 @@
     <!-- Navigation Bar -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">Censorship Resistant</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="security-model.html" class="active">Security Model</a></li>
-                <li><a href="mining-pools.html">Mining Pools</a></li>
                 <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                <li><a href="mining-pools.html">Mining Pools</a></li>
                 <li><a href="calculator.html">Resistance Calculator</a></li>
                 <li><a href="resources.html">Resources</a></li>
             </ul>
@@ -71,8 +72,8 @@
         <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="security-model.html" class="active">Security Model</a></li>
-            <li><a href="mining-pools.html">Mining Pools</a></li>
             <li><a href="attack-vectors.html">Attack Vectors</a></li>
+            <li><a href="mining-pools.html">Mining Pools</a></li>
             <li><a href="calculator.html">Resistance Calculator</a></li>
             <li><a href="resources.html">Resources</a></li>
         </ul>
@@ -95,27 +96,29 @@
         <section class="content-section">
             <h2>Security Through Incentives</h2>
             <div class="content-text" style="max-width: 800px; margin: 0 auto;">
-                <p style="text-indent: 2em;">Bitcoin's security model is unique among other protocols and monetary systems. Rather than relying on trusted third parties, governments, or banks; Bitcoin's security is rooted in <span class="key-concept">economic incentives</span> that drive rational behavior among network participants. Each participant in the network is incentivized to act in their own self interest, which in turn strengthens the network as a whole.</p>
+                <p>Bitcoin's security model is unique among other protocols and monetary systems. Rather than relying on trusted third parties, governments, or banks, Bitcoin's security is rooted in <span class="key-concept">economic incentives</span> that drive rational behavior among network participants. Each participant in the network is incentivized to act in their own self-interest, which in turn strengthens the network as a whole.</p>
                 
-                <p style="text-indent: 2em;">This incentive structure works because Bitcoin aligns miners' economic interests with the security of the network. Miners are motivated both to <span class="content-highlight">earn bitcoin</span> and to <span class="content-highlight">maintain the integrity of the network</span> their investment depends on. Users benefit from this arrangement by gaining access to a decentralized, secure, and neutral monetary system without needing to trust any single entity.</p>
+                <p>This incentive structure works because Bitcoin aligns both miners' and users' economic interests with the security of the network. Miners are incentivized to earn bitcoin, <span class="content-highlight">sell blockspace</span>, and <span class="content-highlight">confirm transactions</span> in accordance with consensus rules. Users complement this by <span class="content-highlight">purchasing blockspace</span> while simultaneously <span class="content-highlight">enforcing consensus rules</span> through running nodes that validate transactions.</p>
                 
-                <p style="text-indent: 2em;">The brilliance of Bitcoin's design is that it turns security from something that must be enforced through authority into something that <span class="key-concept">emerges naturally from self-interested economic behavior</span>. When everyone acts to maximize their own benefit within the consensus rules, the network becomes increasingly secure against censorship and manipulation.</p>
+                <p>The brilliance of Bitcoin's design is that it turns security from something that must be enforced through authority into something that <span class="key-concept">emerges naturally from self-interested economic behavior</span>.</p>
             </div>
         </section>
 
         <section class="content-section dark-bg">
             <h2>Decentralized Security</h2>
             <div class="content-text" style="max-width: 800px; margin: 0 auto;">
-                <p style="text-indent: 2em;"><span class="key-concept">Decentralized participation</span> is the cornerstone of Bitcoin's security model. By distributing power across millions of independent actors, Bitcoin eliminates single points of failure and creates a network that is resistant to capture or control. This decentralized structure means that no individual entity, corporation, or government can unilaterally change the rules, reverse transactions, or prevent users from accessing the network.</p>
+                <p>Decentralized participation is the cornerstone of Bitcoin's security model. By distributing power across millions of independent actors, Bitcoin eliminates single points of failure and creates <span class="key-concept">a network that is resistant to capture or control</span>. This decentralized structure means that no individual entity, corporation, or government can unilaterally change the rules, reverse transactions, or prevent users from accessing the network.</p>
                 
-                <p style="text-indent: 2em;">This security through decentralization applies to multiple layers of the Bitcoin system: the protocol rules are enforced by distributed nodes and consensus is achieved through a competitive mining process.</p>
+                <p>This security through decentralization applies to multiple layers of the Bitcoin system: the protocol rules are enforced by distributed nodes and consensus is achieved through a competitive mining process.</p>
                 
                 <h3>Distributed Mining: Competition and Balance</h3>
-                <p style="text-indent: 2em;">The distributed nature of mining transforms how consensus is achieved in Bitcoin. Rather than relying on central authorities to order and secure transactions, Bitcoin distributes this power across a <span class="content-highlight">competitive marketplace of miners</span>. This competition ensures that no single entity can control which transactions are included, preserving the network's censorship-resistant properties.</p>
+                <p>The distributed nature of mining transforms how consensus is achieved in Bitcoin. Rather than relying on central authorities to order and secure transactions, Bitcoin distributes this power across a <span class="content-highlight">competitive marketplace of miners</span>. This competition ensures that no single entity can control which transactions are included, preserving the network's censorship-resistant properties.</p>
                 
-                <p style="text-indent: 2em;">Within this competitive mining landscape, <span class="key-concept">diversity of participants</span> is crucial. Miners operating outside of regulatory frameworks provide a critical security foundation. They ensure that even when institutional miners face regulatory pressure to censor transactions, alternative paths remain for those transactions to be included in the blockchain, maintaining the network's neutrality and permissionless nature.</p>
+                <p>Within this competitive mining landscape, <span class="key-concept">diversity of participants</span> is crucial. Miners operating outside of regulatory frameworks provide a critical security foundation. They ensure that even when institutional miners face regulatory pressure to censor transactions, alternative paths remain for those transactions to be included in the blockchain, maintaining the network's neutrality and permissionless nature.</p>
                 
-                <p style="text-indent: 2em;">The primary economic check in Bitcoin's security model is the <span class="content-highlight">blockspace market</span>, often referred to as the fee market. If some miners attempt to censor transactions, other miners are financially incentivized to include those transactions to collect the associated fees. This creates a natural balance of power where censorship becomes economically costly for those attempting it, while creating profit opportunities for non-censoring miners.</p>
+                <p>Crucially, this balance only functions when a significant portion of <span class="key-concept">hashrate operates beyond regulatory control</span>. Growth in market capitalization or transaction volume does not automatically increase security if that growth primarily drives regulated mining expansion. In fact, an increasingly regulated mining landscape can actually decrease censorship resistance despite growing network usage.</p>
+
+                <p>The primary economic check in Bitcoin's security model is the <span class="content-highlight">blockspace market</span>, often referred to as the fee market. If some miners attempt to censor transactions, other miners are financially incentivized to include those transactions to collect the associated fees. This creates a natural balance of power where censorship becomes economically costly for those attempting it, while creating profit opportunities for non-censoring miners.</p>
             </div>
         </section>
 
@@ -123,22 +126,22 @@
             <h2>Blockspace Market Dynamics</h2>
             <div class="content-text" style="max-width: 800px; margin: 0 auto;">
    
-                <p style="text-indent: 2em;">It's important to understand the fundamental nature of the blockspace market as a <span class="key-concept">free market for buyers and sellers</span> of blockspace. Bitcoin miners are akin to suppliers, they supply blockspace to willing buyers and users are the buyers of that blockspace. It is a mutual market dynamic where neither side has more or less power over the other. Like in any free market, suppliers can refuse to sell to buyers and buyers can refuse to buy from suppliers. It is an open market of participants choosing who they wish to engage in commerce with.</p>
+                <p>It's important to understand the fundamental nature of the blockspace market as a <span class="key-concept">free market for buyers and sellers</span> of blockspace. Bitcoin miners are akin to suppliers; they supply blockspace to willing buyers, and users are the buyers of that blockspace. It is a mutual market dynamic where neither side has more or less power over the other. Like in any free market, suppliers can refuse to sell to buyers and buyers can refuse to buy from suppliers. It is an open market of participants choosing who they wish to engage in commerce with.</p>
                 <h3>The Buyer-Seller Relationship</h3>
-                <p style="text-indent: 2em;">A miner can refuse to sell blockspace to a user by simply not including their transactions in their block. However, since the landscape is made up of many miners who have the incentive to sell blockspace to willing buyers, this transaction will eventually make it into a block, assuming it pays a competitive fee. <span class="content-highlight">This competitive dynamic</span> is what makes Bitcoin resistant to transaction censorship.</p>
+                <p>A miner can refuse to sell blockspace to a user by simply not including their transactions in their block. However, since the landscape is made up of many miners who have the incentive to sell blockspace to willing buyers, this transaction will eventually make it into a block, assuming it pays a competitive fee. <span class="content-highlight">This competitive dynamic</span> is what makes Bitcoin resistant to transaction censorship.</p>
                 
-                <p style="text-indent: 2em;">Conversely, if a user wants to refuse to buy blockspace from specific miners, they have the option to directly submit their transaction to a private mempool of the miner they want to buy blockspace from. In more extreme cases, they can fork their node to a different blockchain of miners they are more aligned with. There are risks and benefits to these actions, but ultimately each market participant is free to make these choices.</p>
+                <p>Conversely, if a user wants to refuse to buy blockspace from specific miners, they have the option to directly submit their transaction to a private mempool of the miner they want to buy blockspace from. In more extreme cases, they can fork their node to a different blockchain of miners they are more aligned with. There are risks and benefits to these actions, but ultimately each market participant is free to make these choices.</p>
             </div>
         </section>
 
         <section class="content-section dark-bg">
             <h2>The True Foundation of Bitcoin Security</h2>
             <div class="content-text" style="max-width: 800px; margin: 0 auto;">
-                <p style="text-indent: 2em;">What truly sets Bitcoin apart is how it <span class="key-concept">synthesizes decentralization, incentives, and free market principles</span> into a cohesive security model. Unlike traditional systems that rely on external enforcement, Bitcoin's security emerges naturally from the interplay of self-interested participants operating within its consensus rules.</p>
+                <p>What truly sets Bitcoin apart is how it <span class="key-concept">synthesizes decentralization, incentives, and free market principles</span> into a cohesive security model. Unlike traditional systems that rely on external enforcement, Bitcoin's security emerges naturally from the interplay of self-interested participants operating within its consensus rules.</p>
                 
-                <p style="text-indent: 2em;">This synthesis creates powerful properties not found in centralized systems. When miners compete for fees, transaction censorship becomes <span class="content-highlight">economically irrational</span>. When hash power is distributed among diverse participants, no single entity can control the network. When both users and miners have <span class="content-highlight">freedom of choice in the blockspace market</span>, it creates multiple paths for transactions to confirm, making the system resilient against capture.</p>
+                <p>This synthesis creates powerful properties not found in centralized systems. When miners compete for fees, transaction censorship becomes <span class="content-highlight">economically irrational</span>. When hash power is distributed among diverse participants, no single entity can control the network. When both users and miners have <span class="content-highlight">freedom of choice in the blockspace market</span>, it creates multiple paths for transactions to confirm, making the system resilient against capture.</p>
                 
-                <p style="text-indent: 2em;">The result is not just theoretical but demonstrated in practice: a monetary system that becomes more secure as it grows, resistant to external control despite numerous attempts, and capable of maintaining neutrality without requiring trust in its participants. By understanding this elegant design, we can appreciate why Bitcoin represents a <span class="key-concept">fundamental advance in how humans can coordinate value transfer without centralized institutions.</span></p>
+                <p>The result is not just theoretical but demonstrated in practice: a monetary system that is resistant to external control despite numerous attempts, and capable of maintaining neutrality without requiring trust in its participants. By understanding this elegant design, we can appreciate why Bitcoin represents a <span class="key-concept">fundamental advancement in how humans can coordinate without centralized institutions.</span></p>
             </div>
         </section>
     </main>
@@ -157,8 +160,8 @@
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="security-model.html">Security Model</a></li>
-                    <li><a href="mining-pools.html">Mining Pools</a></li>
                     <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                    <li><a href="mining-pools.html">Mining Pools</a></li>
                     <li><a href="calculator.html">Resistance Calculator</a></li>
                     <li><a href="resources.html">Resources</a></li>
                 </ul>

@@ -24,23 +24,64 @@
     <meta name="twitter:title" content="Bitcoin Censorship Resistance Calculator">
     <meta name="twitter:description" content="Calculate how many guerrilla miners are needed to keep Bitcoin censorship resistant.">
     
-    <!-- Link main site styles before calculator-specific styles -->
+    <!-- Load main styles first, then calculator-specific styles -->
     <link rel="stylesheet" href="css/main-styles.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="scripts/script.js"></script>
     <script src="scripts/mobile-menu.js"></script>
+    <!-- Extra script to ensure correct menu behavior -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix for calculator page menu
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navContainer = document.querySelector('.nav-container');
+            const logo = document.querySelector('.logo');
+            
+            function updateMenuVisibility() {
+                const isMobile = window.innerWidth <= 768 || (window.innerHeight <= 500 && window.matchMedia('(orientation: landscape)').matches);
+                
+                if (isMobile) {
+                    // On mobile: show hamburger, hide links
+                    if (menuToggle) menuToggle.style.display = 'flex';
+                    if (navLinks) navLinks.style.display = 'none';
+                    
+                    // Ensure proper layout of the nav container
+                    if (navContainer) {
+                        navContainer.style.flexDirection = 'row';
+                        navContainer.style.justifyContent = 'space-between';
+                        navContainer.style.alignItems = 'center';
+                        navContainer.style.padding = '1rem 2rem';
+                    }
+                    
+                    // Ensure logo doesn't push down layout
+                    if (logo) logo.style.marginBottom = '0';
+                } else {
+                    // On desktop: hide hamburger, show links
+                    if (menuToggle) menuToggle.style.display = 'none';
+                    if (navLinks) navLinks.style.display = 'flex';
+                }
+            }
+            
+            // Run on page load
+            updateMenuVisibility();
+            
+            // Run on resize and orientation change
+            window.addEventListener('resize', updateMenuVisibility);
+            window.addEventListener('orientationchange', updateMenuVisibility);
+        });
+    </script>
 </head>
 <body class="calculator-page">
-    <!-- Navigation Bar (from main site template) -->
+    <!-- Navigation Bar -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">Censorship Resistant</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="security-model.html">Security Model</a></li>
-                <li><a href="mining-pools.html">Mining Pools</a></li>
                 <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                <li><a href="mining-pools.html">Mining Pools</a></li>
                 <li><a href="calculator.html" class="active">Resistance Calculator</a></li>
                 <li><a href="resources.html">Resources</a></li>
             </ul>
@@ -57,8 +98,8 @@
         <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="security-model.html">Security Model</a></li>
-            <li><a href="mining-pools.html">Mining Pools</a></li>
             <li><a href="attack-vectors.html">Attack Vectors</a></li>
+            <li><a href="mining-pools.html">Mining Pools</a></li>
             <li><a href="calculator.html" class="active">Resistance Calculator</a></li>
             <li><a href="resources.html">Resources</a></li>
         </ul>
@@ -171,8 +212,8 @@
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="security-model.html">Security Model</a></li>
-                    <li><a href="mining-pools.html">Mining Pools</a></li>
                     <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                    <li><a href="mining-pools.html">Mining Pools</a></li>
                     <li><a href="calculator.html">Resistance Calculator</a></li>
                     <li><a href="resources.html">Resources</a></li>
                 </ul>

@@ -99,7 +99,7 @@ img {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 1rem 2rem;
     max-width: 1200px;
@@ -107,6 +107,7 @@ img {
 }
 
 .logo {
+    display: none;
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
@@ -115,10 +116,11 @@ img {
 .nav-links {
     display: flex;
     list-style: none;
+    justify-content: center;
 }
 
 .nav-links li {
-    margin-left: 1.5rem;
+    margin: 0 1rem;
 }
 
 .nav-links a {
@@ -237,6 +239,11 @@ img {
 /* Add specific styling for mining pools page to reduce bottom padding */
 .mining-pools .content-section {
     padding: 4rem 2rem 1rem; /* Reduce bottom padding from 4rem to 1rem */
+}
+
+/* Add specific styling for resources page to reduce bottom padding */
+.resources-page .content-section {
+    padding: 3rem 2rem 1rem; /* Reduce top padding to 3rem and bottom padding to 1rem */
 }
 
 .content-section h2 {
@@ -456,7 +463,13 @@ img {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .menu-toggle {
-        display: flex;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001;
     }
 
     .nav-links {
@@ -465,7 +478,7 @@ img {
     
     .nav-container {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         padding: 1rem 1.5rem;
     }
@@ -532,6 +545,44 @@ img {
     }
     .diagram-container .fa-2x {
         font-size: 1.5em;
+    }
+}
+
+/* Additional media query specifically for landscape mode on mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .menu-toggle {
+        display: flex !important;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-nav {
+        width: 220px; /* Slightly smaller width in landscape */
+        padding-top: 3.5rem; /* Reduce top padding */
+    }
+    
+    .mobile-nav-links li {
+        margin-bottom: 0.8rem; /* Reduce spacing between items */
+    }
+    
+    .mobile-nav-links a {
+        font-size: 1rem; /* Smaller font size */
+        padding: 0.3rem 0; /* Less padding */
+    }
+    
+    .mobile-nav-links a.active::after {
+        margin-top: 3px; /* Smaller margin for active indicator */
+    }
+    
+    /* Menu toggle animation adjustments for landscape */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
 
@@ -1164,6 +1215,7 @@ img {
     height: 21px;
     cursor: pointer;
     z-index: 1001;
+    position: relative; /* Ensure proper stacking */
 }
 
 .menu-toggle span {
@@ -1258,42 +1310,6 @@ img {
     transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Landscape Mode Styles for Mobile Devices */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    .mobile-nav {
-        width: 220px; /* Slightly smaller width in landscape */
-        padding-top: 3.5rem; /* Reduce top padding */
-    }
-    
-    .mobile-nav-links li {
-        margin-bottom: 0.8rem; /* Reduce spacing between items */
-    }
-    
-    .mobile-nav-links a {
-        font-size: 1rem; /* Smaller font size */
-        padding: 0.3rem 0; /* Less padding */
-    }
-    
-    .mobile-nav-links a.active::after {
-        margin-top: 3px; /* Smaller margin for active indicator */
-    }
-    
-    /* Ensure hamburger is visible and properly positioned */
-    .menu-toggle {
-        position: relative;
-        z-index: 1001;
-    }
-    
-    /* Menu toggle animation adjustments for landscape */
-    .menu-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-}
-
 /* Resources Page Styles */
 .resource-cards {
     display: grid;
@@ -1335,10 +1351,15 @@ img {
 }
 
 .resource-links li:before {
-    content: "→";
+    content: "";
     position: absolute;
     left: 0;
-    color: var(--primary-color);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 14px;
+    background-color: var(--primary-color);
+    border-radius: 1px;
 }
 
 .resource-links a {
@@ -1348,5 +1369,123 @@ img {
 
 /* Removing link hover effect */
 .resource-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Attack Vectors Page Styles */
+.attack-section {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.attack-header {
+    background-color: var(--card-bg);
+    padding: 1rem 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.attack-header:hover {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+.attack-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.attack-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: var(--dark-bg);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.attack-content.active {
+    max-height: 5000px; /* Increased from 3000px to ensure all content is visible */
+}
+
+.attack-content-inner {
+    padding: 1.5rem;
+    font-size: 1.1rem; /* Increased font size */
+}
+
+.attack-content-inner > p {
+    padding-left: 15px; /* Add indentation to direct paragraphs */
+}
+
+.attack-subsection {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.attack-subsection:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.attack-subsection h4 {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 15px;
+    margin-left: -19px;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.attack-subsection p {
+    padding-left: 15px; /* Add indentation to paragraphs in subsections */
+}
+
+.quote-box {
+    background-color: var(--card-bg);
+    border-left: 3px solid var(--accent-blue);
+    padding: 0.8rem 1rem;
+    margin: 1rem 0 1rem 15px; /* Reduced margins */
+    font-style: italic;
+    font-size: 0.95em; /* Slightly smaller font size */
+}
+
+.quote-author {
+    display: block;
+    text-align: right;
+    margin-top: 0.5rem; /* Reduced margin */
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.9em; /* Smaller author text */
+}
+
+.key-concept {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.attack-method {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    margin-left: 15px; /* Added left margin to align with indented paragraphs */
+}
+
+.attack-method:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.attack-method h5 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
     color: var(--primary-color);
 } 

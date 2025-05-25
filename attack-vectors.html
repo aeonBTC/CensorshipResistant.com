@@ -33,12 +33,11 @@
     <!-- Navigation Bar -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">Censorship Resistant</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="security-model.html">Security Model</a></li>
-                <li><a href="mining-pools.html">Mining Pools</a></li>
                 <li><a href="attack-vectors.html" class="active">Attack Vectors</a></li>
+                <li><a href="mining-pools.html">Mining Pools</a></li>
                 <li><a href="calculator.html">Resistance Calculator</a></li>
                 <li><a href="resources.html">Resources</a></li>
             </ul>
@@ -55,8 +54,8 @@
         <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="security-model.html">Security Model</a></li>
-            <li><a href="mining-pools.html">Mining Pools</a></li>
             <li><a href="attack-vectors.html" class="active">Attack Vectors</a></li>
+            <li><a href="mining-pools.html">Mining Pools</a></li>
             <li><a href="calculator.html">Resistance Calculator</a></li>
             <li><a href="resources.html">Resources</a></li>
         </ul>
@@ -69,19 +68,274 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Bitcoin Attack Vectors</h1>
-            <p>Understanding attack vectors to Bitcoin's censorship resistance and decentralization.</p>
+            <p>Threats to network integrity and how Bitcoin defends against state-level adversaries.</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Coming Soon Section -->
         <section class="content-section">
-            <div class="coming-soon" style="text-align: center; padding: 4rem 2rem;">
-                <i class="fas fa-tools fa-4x" style="color: var(--primary-color); margin-bottom: 2rem;"></i>
-                <h2>Content Coming Soon</h2>
+            <h2>Primary Security Challenges</h2>
+            <div class="content-text" style="max-width: 800px; margin: 0 auto;">
+                <p>Bitcoin's architecture is engineered for resilience, but it is not entirely immune to attack. A clear understanding of potential attack vectors is vital for safeguarding its fundamental properties of decentralization and censorship resistance. Below we examine the most significant threats, how these attacks can be identified, and what methods could be employed to mitigate and overcome them.</p>
+            </div>
+            <br><br><br>
+            <div class="attack-section">
+                <div class="attack-header" onclick="toggleAttack(this)">
+                    <h3><i class="fas fa-exclamation-triangle"></i> 51% Attack</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="attack-content">
+                    <div class="attack-content-inner">
+                        <div class="attack-subsection">
+                            <h4>Definition</h4>
+                            <p>Bitcoin's fundamental security assumption was articulated by Satoshi in the whitepaper, describing what most people know as a 51% attack:</p>
+                            
+                            <div class="quote-box">
+                                "The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes."
+                                <span class="quote-author">- Satoshi Nakamoto, Bitcoin Whitepaper</span>
+                        </div>
+                        
+                        <p>This attack becomes possible when a single entity or coordinated faction controls more than 50% of Bitcoin's mining power. While often described as prohibitively expensive, a state-level attack might actually require minimal direct investment from the attacking government.</p>
+                        </div>
+                        <div class="attack-subsection">
+                            <h4>Motivation and Adversaries</h4>
+                            <p>Governments represent the most plausible adversaries in this threat model. Unlike private entities, states don't necessarily need to acquire mining hardware themselves. Instead, they can leverage regulatory authority to compel institutional miners operating within their jurisdiction to implement censorship policies. These miners could continue mining profitably while simply excluding targeted transactions and collecting block subsidy and fees from compliant transactions.</p>
+                            
+                            <p>States have unique incentives to censor Bitcoin transactions that other actors lack. Primarily, governments seek to maintain control over economic activity and enforce tax collection, both of which are threatened by a censorship resistant monetary system. By censoring specific transactions or requiring identification of participants, governments can maintain their ability to monitor financial flows, prevent capital flight, and ensure their taxation policies remain enforceable.</p>
+                            
+                            <p>A common misconception is that such censorship would trigger an immediate and dramatic market collapse. In reality, the impact might be tempered if censorship is framed as combating terrorism, money laundering, or other illicit activities. Major financial institutions like BlackRock, Fidelity, ETFs, and corporate Bitcoin treasury holders might actually view certain forms of censorship positively, perceiving it as regulatory maturation rather than an attack on Bitcoin's fundamental properties.</p>
+                            
+                            <p>This economic reality makes concentrated hashpower in any single jurisdiction or allied group of nations a significant vulnerability. The attack becomes increasingly feasible as more mining operations fall under the control of regulated, identifiable entities.</p>
+                        </div>
+                        
+                        <div class="attack-subsection">
+                            <h4>Attack Methods</h4>
+                            <p>When controlling the majority of network hashpower, attackers can deploy several disruptive strategies:</p>
+                            
+                            <div class="attack-method">
+                                <h5>On-Chain Censorship</h5>
+                                <p>The primary objective for state actors would be transaction censorship, systematically excluding specific addresses or transactions from the blockchain. Unlike other attacks, censorship can be implemented while miners continue normal operations and maintain profitability from block subsidy and fees from compliant transactions.</p>
+                                <p>A critical and often overlooked element of a 51% censorship attack is that majority hashpower enables the attacker to consistently orphan any blocks produced by non-compliant miners. The censoring majority inherently builds a heavier chain and replaces any blocks containing banned transactions. Non-compliant miners would quickly face economic pressure to join the censoring majority or risk mining blocks that never become part of the chain. Importantly, this attack does not break Bitcoin's consensus rules since nodes always follow the heaviest chain as designed, which will inevitably be the one created by majority hashpower.</p>
+                            </div>
+                            <div class="attack-method">
+                                <h5>Timewarp Attack</h5>
+                                <p>By manipulating block timestamps, attackers with majority hashpower can exploit Bitcoin's difficulty adjustment algorithm. This attack has significant economic implications as it allows the attacker to mine blocks much faster than intended, accelerating Bitcoin's emission schedule. This artificially increases the rate at which new bitcoins are minted, economically benefiting the attacking miners at the expense of all other participants by diluting the expected controlled supply. A successful timewarp attack undermines both Bitcoin's monetary policy and its predictable issuance schedule.</p>
+                            </div>
+
+                            <div class="attack-method">
+                                <h5>Double-Spending</h5>
+                                <p>Double-spending attacks could be deployed for strategic purposes by majority hashpower controllers. The attack works by spending coins, waiting for confirmation, then creating a longer chain that omits the original transaction and effectively reversing it. For users and businesses, this risk can be mitigated by waiting for additional confirmations before considering transactions final. Six confirmations (roughly one hour) has traditionally been considered secure, but against a determined state actor with majority hashpower, even more confirmations might be prudent for high-value transactions.</p>
+                            </div>
+                        
+                        </div>
+                        <div class="attack-subsection">
+                            <h4>Preventing a 51% Attack</h4>
+                            <p>Methods to reduce the risk of a 51% attack before it materializes:</p>
+                            
+                            <div class="attack-method">
+                                <h5>Guerrilla Miner Distribution</h5>
+                                <p>Merely having institutional miners spread across different countries is insufficient for censorship resistance, as these regulated entities can still be targeted by coordinated state action regardless of jurisdiction. True resistance requires guerrilla (black market) miners, small to medium-sized anonymous operations that are hard to locate. These miners must be geographically dispersed worldwide, operating outside institutional frameworks and utilizing a variety of power sources to resist identification and regulation.</p>
+                                <p>Critical to achieving this distribution is widespread access to mining hardware that cannot be easily controlled or restricted. Open source mining projects like Bitaxe democratize access by providing designs that can be built or modified by anyone. This accessibility creates a path to mining participation that is resistant to supply chain controls. When combined with mining setups that utilize waste heat or stranded power, guerrilla mining becomes not just a security measure but an economically rational activity for individuals worldwide.</p>
+                            </div>
+                            <div class="attack-method">
+                                <h5>Decentralized Mining Pools</h5>
+                                <p>Traditional mining pools represent a critical attack vector because they operate as centralized entities that can be regulated, compromised, or shut down by authorities. The majority of Bitcoin's hashrate currently flows through a handful of identifiable pool operators, creating an obvious target for censorship enforcement.</p>
+                                <p>Decentralized peer-to-peer mining pools eliminate this vulnerability by removing the central point of control. This infrastructure is crucial for guerrilla miners who need stable rewards without compromising their censorship resistance. Without decentralized pooling options, smaller miners face an impossible choice: accept high variance solo mining or surrender their sovereignty to regulated pools.</p>
+                            </div>
+                            <div class="attack-method">
+                                <h5>Demand for Blockspace</h5>
+                                <p>When regulated (white market) miners face legal constraints preventing them from including certain transactions, regardless of fees offered, it creates a market opportunity. Regulated miners who exclude transactions create escalating fee pressure that specifically incentivizes guerrilla (black market) mining operations. As fees for non-compliant transactions increase, the economic reward for operating outside regulatory frameworks grows proportionally, encouraging the proliferation and expansion of guerrilla mining infrastructure. This market dynamic creates a self-reinforcing cycle where censorship attempts directly fund their own countermeasures.</p>
+                            </div>
+                            
+
+                        </div>
+                        
+                        <div class="attack-subsection">
+                            <h4>Identifying a 51% Attack</h4>
+                            <p>Network participants might detect a 51% attack through several telltale signals:</p>
+                            
+                            <div class="attack-method">
+                                <p>An unusual increase in orphaned blocks and frequent chain reorgs, where seemingly valid blocks are repeatedly abandoned.</p>
+                            </div>
+                            
+                            <div class="attack-method">
+                                <p>Distinct transaction patterns where certain transaction types consistently fail to confirm despite offering competitive fees.</p>
+                            </div>
+                            
+                            <div class="attack-method">
+                                <p>Legislation or regulatory mandates from government officials signaling their intent to influence network behavior.</p>
+                            </div>
+                            
+                            <div class="quote-box">
+                                "I would rather see more hash power in the US, so that we can force miners to censor the network...It's not about telling miners not to mine certain transactions, but to not even build on blocks that have non-compliant transactions."
+                                <span class="quote-author">- Carole House, Former White House NSC Cybersecurity Director</span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="attack-subsection">
+                            <h4>Overcoming a 51% Attack</h4>
+                            <p>Should a 51% attack materialize, the Bitcoin community could respond with several countermeasures:</p>
+                            
+                            <div class="attack-method">
+                                <h5>Economic Incentives</h5>
+                                <p>The only non-fork countermeasure is to leverage fee dynamics as a defense mechanism. As fees for censored transactions increase, guerrilla miners face a calculated risk-reward scenario. Higher fees incentivize them to commit additional resources toward overcoming the attacker's hashpower, but this strategy carries significant risk. If guerrilla miners invest in expanding their operations but fail to collectively exceed the 51% threshold, they suffer substantial losses since their blocks containing censored transactions will still be orphaned by the majority chain, wasting their energy and capital investment.</p>
+                                <p>This creates a coordination threshold problem where individual miners must assess whether sufficient collective hashpower exists among other resistant miners to justify their own additional investment. The defense only works if enough participants commit resources simultaneously to successfully overtake the majority. This complex game theory dynamic requires guerrilla miners to accurately gauge both the fee premium and the likelihood of collective success against the censor.</p>
+                            </div>
+
+                            <div class="attack-method">
+                                <h5>Protocol Modification</h5>
+                                <p>Changing Bitcoin's hashing algorithm through a hard fork ultimately creates a market split rather than a technical solution. This approach forces all participants to make an economic choice about which chain to support. Many institutional users like banks, corporations, and governments may prefer to remain on the censored chain if it aligns with their regulatory needs, creating a persistent demand for blockspace on that chain. The fork simply transforms a technical attack into a marketplace division, with each chain appealing to different user segments. The new chain would start with minimal security, creating an extended vulnerability window while it bootstraps hashpower. This represents a security downgrade rather than an improvement, as the chain fragmentation dilutes the collective security of the network.</p>
+                                <p>Another proposed solution is manual block rejection by user nodes through the "invalidateblock" command, but this creates a fundamentally different consensus mechanism. Instead of all nodes objectively following the heaviest chain, each node operator subjectively decides which blocks to accept or reject. This introduces critical coordination problems as the network fragments into inconsistent views. Some nodes may reject certain blocks while others accept them, creating multiple competing "true" versions of the blockchain. Without universal agreement on block validity, the network loses its most important property: objective consensus on the state of the ledger. This approach converts Bitcoin from a system with algorithmic finality into one dependent on human social consensus, effectively abandoning the core innovation of Proof of Work.</p>
+                            </div>
+                            
+                            <p class="important-note"><i>These reactive countermeasures are neither guaranteed to succeed nor preferable as solutions. They represent high-risk, last-resort options with significant drawbacks and uncertain outcomes. The optimal approach is preventing attacks before they materialize through proactive measures like guerrilla mining distribution, decentralized pool architecture, and robust fee markets. Bitcoin's security model functions best when attack prevention is prioritized over attempting to recover from an attack after it has already occurred.</i></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="attack-section">
+                <div class="attack-header" onclick="toggleAttack(this)">
+                    <h3><i class="fas fa-skull-crossbones"></i> Poison Block Attack</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="attack-content">
+                    <div class="attack-content-inner">
+                        <div class="attack-subsection">
+                            <h4>Definition</h4>
+                            <p>A poison block attack utilizes Bitcoin's signature operations (sigops) verification process, exploiting the resource-intensive nature of signature validation to temporarily paralyze the network. Unlike the 51% attack which requires majority hashpower, this attack focuses on computational asymmetry between block creation and verification.</p>
+                        </div>
+                        
+                        <div class="attack-subsection">
+                            <h4>Mechanism of Attack</h4>
+                            <p>In this attack, an adversary constructs a block packed with transactions containing an excessive number of sigops. While the block remains valid under consensus rules, it's deliberately designed to:</p>
+                            
+                            <div class="attack-method">
+                                <p>Paralyze network nodes by triggering computationally intensive validation processes that consume all available resources, turning what should be near-instant verification into a prolonged operation lasting minutes to hours based on hardware specifications.</p>
+                            </div>
+                            
+                            <div class="attack-method">
+                                <p>Render nodes effectively unusable during this extended validation period, preventing them from making new transactions or mining new blocks.</p>
+                            </div>
+                            
+                            <p>The computational asymmetry is key: while creating a transaction with many sigops is relatively easy, verifying those signatures is computationally expensive. This creates a validation bottleneck that affects the entire network simultaneously.</p>
+                        </div>
+                        
+                        <div class="attack-subsection">
+                            <h4>Strategic Advantages</h4>
+                            
+                            <div class="attack-method">
+                                <h5>Mining Advantage</h5>
+                                <p>If the attacker is a miner, they gain a significant head start on mining the next block. While other miners are still validating the poison block, the attacking miner can begin working on the subsequent block immediately, having prepared for the attack in advance.</p>
+                            </div>
+                            
+                            <div class="attack-method">
+                                <h5>Effective Hashrate Amplification</h5>
+                                <p>By repeatedly mining poison blocks, an attacker can effectively reduce the total active hashrate of the network during validation periods. This effectively lowers the threshold for conducting a 51% attack, as the attacker needs less than 51% of the total hashpower to gain majority control during these vulnerability windows.</p>
+                            </div>
+                            
+                            <div class="attack-method">
+                                <h5>Network Disruption</h5>
+                                <p>Even without leveraging the mining advantage, repeatedly broadcasting poison blocks could significantly disrupt network operations by creating periodic "freezes" in transaction processing, degrading Bitcoin's utility as a monetary network.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="attack-subsection">
+                            <h4>Mitigating Poison Block Attacks</h4>
+                            
+                            <div class="attack-method">
+                                <h5>Sigop Limits</h5>
+                                <p>The Bitcoin network implements a soft fork with strict limits on the number of signature operations allowed per transaction, making it more difficult to construct a block that would cause excessive validation times.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- Common Misconceptions Section -->
+        <section class="content-section">
+            <h2>Common Misconceptions</h2>
+            <br>
+            <div class="attack-section">
+                <div class="attack-header" onclick="toggleAttack(this)">
+                    <h3><i class="fas fa-exclamation-circle"></i> Censorship Misconception</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="attack-content">
+                    <div class="attack-content-inner">
+                        <p>A common misconception is that a large pool or miner rejecting certain transactions from their own blocks constitutes censorship. This fundamentally misunderstands what censorship means in Bitcoin's context.</p>
+                        <p>True censorship only occurs when a majority hashpower actively orphans blocks from other miners to enforce their exclusion policy network-wide. Individual miners or pools choosing which transactions to include in their own blocks is not censorship, it's simply free market actors exercising their right to sell blockspace to whomever they want. Each miner has the freedom to include or exclude any transaction for any reason, whether economic, regulatory, or personal.</p>
+                        <p>This distinction is critical: miners choosing not to process certain transactions themselves is market behavior; miners with majority hashpower preventing other miners from including those transactions through block orphaning is censorship. The former preserves Bitcoin's permissionless nature as users can still access miners willing to include their transactions, while the latter fundamentally breaks it by imposing a single policy across the entire network.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="attack-section">
+                <div class="attack-header" onclick="toggleAttack(this)">
+                    <h3><i class="fas fa-exclamation-circle"></i> 51% Impact Misconception</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="attack-content">
+                    <div class="attack-content-inner">
+                        <p>The misconception that a 51% censorship attack is not that big of a deal fundamentally misunderstands Bitcoin's core value proposition. In reality, a successful 51% censorship attack breaks all of Bitcoin's fundamental value propositions:</p>
+                        <ul style="margin-left: 30px; list-style-type: disc; color: #f5a623;">
+                            <li><span style="color: #fff;">Eliminates Bitcoin's permissionless nature by allowing majority hashpower to dictate which transactions are confirmed.</span></li>
+                            <li><span style="color: #fff;">Removes censorship resistance, which removes a key property distinguishing it from traditional financial systems.</span></li>
+                            <li><span style="color: #fff;">Destroys fungibility by enabling the ability to blacklist specific addresses or transactions.</span></li>
+                            <li><span style="color: #fff;">Compromises Bitcoin's inflation hedge by enabling majority hashpower to impose additional taxes as a condition to move funds.</span></li>                  
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="attack-section">
+                <div class="attack-header" onclick="toggleAttack(this)">
+                    <h3><i class="fas fa-exclamation-circle"></i> 51% Threshold Misconception</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="attack-content">
+                    <div class="attack-content-inner">
+                        <p>A common misconception is that attackers need significantly more than 51% hashpower because they would occasionally fall behind the honest chain. This is mathematically incorrect.</p>
+                        <p>With 51% of the network hashrate, an attacker will always outpace the remaining 49% over time. The laws of probability ensure that the chain with more hashpower will inevitably become longer than competitors. While there may be brief periods where the attacker falls behind due to statistical variance, these are temporary fluctuations that resolve as more blocks are mined.</p>
+                        <p>This means that 51% is indeed the threshold at which an attacker gains control of the network's block production, not a higher percentage as sometimes claimed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="attack-section">
+                <div class="attack-header" onclick="toggleAttack(this)">
+                    <h3><i class="fas fa-exclamation-circle"></i> Custom Template Misconception</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="attack-content">
+                    <div class="attack-content-inner">
+                        <p>There's a misconception that custom block templates in mining (as offered by Ocean and StratumV2) inherently increase censorship resistance or decentralization. In reality, an attacker with sufficient hashpower can still conduct a 51% attack regardless of template customization.</p>
+                        <p>Even within a perfectly decentralized p2p mining pool, an entity controlling 51% of the hashpower can enforce their template policy by joining the pool and orphaning blocks that don't comply with their rules.</p>
+                        <p>A more robust solution would be something like a consensus template within a decentralized pool. Each miner in the pool shares their mempool data, creating a collective view of all available transactions. The p2p pool protocol then constructs a unified template that prioritizes the highest-fee transactions regardless of their source or nature. This algorithmic approach not only ensures that economic incentives remain aligned with Bitcoin's security model, but also creates plausible deniability for miners.</p>
+                        <p>When miners collectively commit to this fee-maximizing template strategy, the pool becomes more resistant to soft censorship. Any high-fee transaction excluded by centralized pools creates a greater economic opportunity for the decentralized pool miners. This strengthens the market forces that make censorship costly and incentivizes further growth of black market mining infrastructure. While this approach increases the cost of maintaining censorship, it cannot alone prevent a determined 51% attacker, as countering the attack relies on hashpower majority rather than template control.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="attack-section">
+                <div class="attack-header" onclick="toggleAttack(this)">
+                    <h3><i class="fas fa-exclamation-circle"></i> Pool Distribution Misconception</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="attack-content">
+                    <div class="attack-content-inner">
+                        <p>Mining pool distribution is not reliable indicator of hashrate decentralization. A single entity can distribute their hashrate across multiple pools, creating the illusion of decentralization while actually controlling a majority of the network.</p>
+                        <p>When examining mining pool charts or distributions, it's important to understand that these visualizations show only which pools are publishing blocks, not the actual distribution of physical mining hardware or ownership. A state-level adversary or large corporation can operate through multiple pools simultaneously, masking their true share of network hashpower.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -98,8 +352,8 @@
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="security-model.html">Security Model</a></li>
-                    <li><a href="mining-pools.html">Mining Pools</a></li>
                     <li><a href="attack-vectors.html">Attack Vectors</a></li>
+                    <li><a href="mining-pools.html">Mining Pools</a></li>
                     <li><a href="calculator.html">Resistance Calculator</a></li>
                     <li><a href="resources.html">Resources</a></li>
                 </ul>
@@ -123,5 +377,19 @@
             <p><a href="https://x.com/aeonBTC/status/1647682869035413505" target="_blank">"Institutional miners are a security risk.<br>The only secure hash is unknown hash."</a></p>
         </div>
     </footer>
+
+    <script>
+        function toggleAttack(element) {
+            const content = element.nextElementSibling;
+            content.classList.toggle('active');
+            
+            const icon = element.querySelector('.fa-chevron-down');
+            if (content.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0)';
+            }
+        }
+    </script>
 </body>
 </html> 
