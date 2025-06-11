@@ -16,6 +16,8 @@
     <meta property="og:site_name" content="Censorship Resistant">
     <meta property="og:title" content="Mining Pools | Bitcoin Censorship Resistance">
     <meta property="og:description" content="Evaluating the risks, benefits, and trade-offs of different Bitcoin mining approaches.">
+    <meta property="og:image" content="https://censorshipresistant.com/images/header.jpg">
+    <meta property="og:image:alt" content="Bitcoin Censorship Resistance">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
@@ -23,6 +25,8 @@
     <meta name="twitter:site" content="Censorship Resistant">
     <meta name="twitter:title" content="Mining Pools | Bitcoin Censorship Resistance">
     <meta name="twitter:description" content="Evaluating the risks, benefits, and trade-offs of different Bitcoin mining approaches.">
+    <meta name="twitter:image" content="https://censorshipresistant.com/images/header.jpg">
+    <meta name="twitter:image:alt" content="Bitcoin Censorship Resistance">
     
     <link rel="stylesheet" href="css/main-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -76,7 +80,7 @@
     <main class="container">
         <section class="content-section">
             <h2>Mining Pool Architecture</h2>
-            <p>Bitcoin mining methods are either centralized or decentralized. Centralized approaches offer efficiency but introduce central points of control, while decentralized methods remove central points of control but introduce ineffecienies. Explore the interactive flowchart below to understand the differences between these mining methods.</p><br>
+            <p>Bitcoin mining methods are either centralized or decentralized. Centralized approaches offer efficiency but introduce central points of control, while decentralized methods remove central points of control but introduce inefficiencies. Explore the interactive flowchart below to understand the differences between these mining methods.</p><br>
             
             <div class="flowchart-container">
 
@@ -283,7 +287,7 @@
                         <div class="censorship-risk-section">
                             <h4 class="detail-heading">Attack Vectors</h4>
                             <ul class="attack-vectors-list">
-                                <li>Pool operators exist as a centralized point of control and can be targeted by regulators to implement KYC, censor transactions, or withhold payouts.</li>
+                                <li>Pool operators exist as a centralized point of control and can be targeted by regulators to implement KYC, blacklist transactions, or withhold payouts.</li>
                                 <li>Pool operators have unilateral control over the pool server.</li>
                                 <li>Fundamentally a client-server relationship; coordination depends entirely on the pool server.</li>
                             </ul>
@@ -313,7 +317,7 @@
                                     <ol class="detail-list">
                                         <li>The pool runs a Bitcoin node and a pool server.</li>
                                         <li>Miners run a Bitcoin node and connect to the pool server.</li>
-                                        <li>The pool coordinates and adminstrates the coinbase payout.</li>
+                                        <li>The pool coordinates and administrates the coinbase payout.</li>
                                         <li>Miners build blocks, choose transactions, and hash until a block is found.</li>
                                         <li>The miner who finds a block broadcasts it to the Bitcoin network.</li>
                                     </ol>
@@ -359,7 +363,7 @@
                         <div class="censorship-risk-section">
                             <h4 class="detail-heading">Attack Vectors</h4>
                             <ul class="attack-vectors-list">
-                                <li>Pool operators exist as a centralized point of control and can be targeted by regulators to implement KYC, reject templates, or withhold payouts.</li>
+                                <li>Pool operators exist as a centralized point of control and can be targeted by regulators to implement KYC, reject shares, or withhold payouts.</li>
                                 <li>Pool operators have unilateral control over the pool server.</li>
                                 <li>Fundamentally a client-server relationship; coordination depends entirely on the pool server.</li>
                             </ul>
@@ -381,7 +385,7 @@
                         <div class="detail-grid">
                             <div class="detail-column">
                                 <div class="detail-section">
-                                    <h4 class="detail-heading">Overvie:</h4>
+                                    <h4 class="detail-heading">Overview:</h4>
                                     <p>Decentralized pool mining involves miners running their own Bitcoin node alongside a peer-to-peer pool node. The miners directly connect to each other to track their contributions and coordinate the coinbase payout. This method removes the need for a centralized pool server but introduces some latency and inefficiency.</p>
                                 </div>
                                 <div class="detail-section">

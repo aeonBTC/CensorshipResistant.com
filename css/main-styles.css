@@ -1402,7 +1402,7 @@ img {
 .attack-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    transition: max-height 0.2s ease-out;
     background-color: var(--dark-bg);
     border-left: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
@@ -1411,6 +1411,7 @@ img {
 
 .attack-content.active {
     max-height: 5000px; /* Increased from 3000px to ensure all content is visible */
+    transition: max-height 0.5s ease-in;
 }
 
 .attack-content-inner {
@@ -1488,4 +1489,8 @@ img {
     font-size: 1.15rem;
     margin-bottom: 0.5rem;
     color: var(--primary-color);
+}
+
+:target {
+  scroll-margin-top: 90px;
 } 
